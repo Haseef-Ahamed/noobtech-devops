@@ -1,0 +1,112 @@
+#!/bin/bash
+# noobtech-devops — Main entry point
+set -euo pipefail
+
+export NOOBTECH_ROOT
+NOOBTECH_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$NOOBTECH_ROOT/lib/logger.sh"
+source "$NOOBTECH_ROOT/lib/common.sh"
+
+VERSION="1.0.0"
+
+show_help() {
+cat << EOF
+
+${C_BOLD}${C_BLUE}  noobtech-devops v${VERSION}${C_RESET}
+  Noob Tech Infrastructure Automation Platform
+
+${C_BOLD}  Usage:${C_RESET}  noobtech-devops <module> <action> [options]
+
+${C_BOLD}  Modules:${C_RESET}
+    ${C_GREEN}server${C_RESET}    server list | server info <hostname>
+    ${C_GREEN}config${C_RESET}    config apply <profile> <server>
+              config check <server>
+              config remediate <server>
+    ${C_GREEN}deploy${C_RESET}    deploy <app> <env> [rolling|blue-green|canary]
+    ${C_GREEN}backup${C_RESET}    backup create|restore|verify|list
+    ${C_GREEN}monitor${C_RESET}   monitor start|status|dashboard
+    ${C_GREEN}security${C_RESET}  security scan <server> | security report
+    ${C_GREEN}report${C_RESET}    report generate <daily|weekly|monthly>
+
+${C_BOLD}  Global Options:${C_RESET}
+    --env=<env>   dev | staging | production
+    --verbose     Show debug output
+    --dry-run     Simulate without changes
+    --help        This help
+
+${C_BOLD}  Examples:${C_RESET}
+    ${C_CYAN}./noobtech-devops server list${C_RESET}
+    ${C_CYAN}./noobtech-devops config check dev-web-01${C_RESET}
+    ${C_CYAN}./noobtech-devops deploy webapp staging rolling${C_RESET}
+
+EOF
+}
+
+parse_global_options() {
+    local prev=""
+    for arg in "$@"; do
+        [ "$prev" = "--env" ] && export NOOBTECH_ENV="$arg"
+        case "$arg" in
+            --env=*)   export NOOBTECH_ENV="${arg#--env=}" ;;
+            --verbose) export NOOBTECH_VERBOSE="true" ;;
+            --dry-run) export NOOBTECH_DRY_RUN="true" ;;
+        esac
+        prev="$arg"
+    done
+}
+
+cmd_server() {
+    local action="${1:-list}"; [ $# -gt 0 ] && shift
+    case "$action" in
+        list)
+            log_section "Server Inventory"
+            printf "  %-12s %-16s %-13s %-10s\n" "ENV" "HOSTNAME" "IP" "ROLE"
+            echo "  ──────────────────────────────────────────────────"
+            awk '
+                /- hostname:/  { hostname=$NF }
+                /^    ip:/     { ip=$NF }
+                /environment:/ { env=$NF }
+                /^    role:/   { role=$NF }
+                /^    tags:/   {
+                    if (hostname != "")
+                        printf "  %-12s %-16s %-13s %-10s\n", env, hostname, ip, role
+                    hostname=""; ip=""; env=""; role=""
+                }
+            ' "$NOOBTECH_ROOT/servers.yaml"
+            log_info "SERVER" "Listed all servers"
+            ;;
+        info)
+            local t="${1:-}"; [ -z "$t" ] && { log_error "SERVER" "Usage: server info <hostname>"; return 1; }
+            echo ""; echo "${C_BOLD}  Server: $t${C_RESET}"; echo "  ─────────────────"
+            grep -A 15 "hostname: $t" "$NOOBTECH_ROOT/servers.yaml" | head -16
+            ;;
+        *) log_error "SERVER" "Unknown: $action. Use: list, info"; return 1 ;;
+    esac
+}
+
+main() {
+    rotate_logs
+    [ $# -eq 0 ] && { show_help; return 0; }
+    parse_global_options "$@"
+    local module="$1"; shift
+    case "$module" in
+        --help|-h)    show_help; return 0 ;;
+        --version|-v) echo "noobtech-devops v$VERSION"; return 0 ;;
+    esac
+    log_debug "SYSTEM" "Running: $module $*"
+    case "$module" in
+        config)   source "$NOOBTECH_ROOT/modules/config.sh";   cmd_config   "$@" ;;
+        deploy)   source "$NOOBTECH_ROOT/modules/deploy.sh";   cmd_deploy   "$@" ;;
+        backup)   source "$NOOBTECH_ROOT/modules/backup.sh";   cmd_backup   "$@" ;;
+        monitor)  source "$NOOBTECH_ROOT/modules/monitor.sh";  cmd_monitor  "$@" ;;
+        security) source "$NOOBTECH_ROOT/modules/security.sh"; cmd_security "$@" ;;
+        report)   source "$NOOBTECH_ROOT/modules/report.sh";   cmd_report   "$@" ;;
+        server)   cmd_server "$@" ;;
+        *)
+            log_error "SYSTEM" "Unknown module: '$module'"
+            echo "  Run './noobtech-devops --help' to see modules."
+            return 1 ;;
+    esac
+}
+
+[[ "${BASH_SOURCE[0]}" == "${0}" ]] && main "$@"

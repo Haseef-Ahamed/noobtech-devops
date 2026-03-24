@@ -1,0 +1,117 @@
+servers:
+  - hostname: prod-web-01
+    ip: 10.0.1.10
+    environment: production
+    role: web
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_prod
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-PROD-001
+    dependencies: [prod-db-01, prod-cache-01]
+    services: [nginx, nodejs]
+
+  - hostname: prod-web-02
+    ip: 10.0.1.11
+    environment: production
+    role: web
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_prod
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-PROD-001
+    dependencies: [prod-db-01, prod-cache-01]
+    services: [nginx, nodejs]
+
+  - hostname: prod-db-01
+    ip: 10.0.1.20
+    environment: production
+    role: database
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_prod
+    tags:
+      team: dba
+      project: webapp
+      cost-center: CC-PROD-002
+    dependencies: []
+    services: [mysql]
+
+  - hostname: prod-cache-01
+    ip: 10.0.1.30
+    environment: production
+    role: cache
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_prod
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-PROD-001
+    dependencies: []
+    services: [redis]
+
+  - hostname: stg-web-01
+    ip: 10.0.2.10
+    environment: staging
+    role: web
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_staging
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-STG-001
+    dependencies: [stg-db-01]
+    services: [nginx, nodejs]
+
+  - hostname: stg-web-02
+    ip: 10.0.2.11
+    environment: staging
+    role: web
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_staging
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-STG-001
+    dependencies: [stg-db-01]
+    services: [nginx, nodejs]
+
+  - hostname: stg-db-01
+    ip: 10.0.2.20
+    environment: staging
+    role: database
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_staging
+    tags:
+      team: dba
+      project: webapp
+      cost-center: CC-STG-001
+    dependencies: []
+    services: [mysql]
+
+  - hostname: dev-web-01
+    ip: 10.0.3.10
+    environment: development
+    role: web
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_dev
+    tags:
+      team: backend
+      project: webapp
+      cost-center: CC-DEV-001
+    dependencies: [dev-db-01]
+    services: [nginx, nodejs]
+
+  - hostname: dev-db-01
+    ip: 10.0.3.20
+    environment: development
+    role: database
+    os: ubuntu-22.04
+    ssh_key: ~/.ssh/noobtech_dev
+    tags:
+      team: dba
+      project: webapp
+      cost-center: CC-DEV-001
+    dependencies: []
+    services: [mysql]
