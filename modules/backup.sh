@@ -221,15 +221,29 @@ backup_create() {
     echo ""
 
     # ── STEP 4: Get file size ────────────────────────────────────────────────
-    echo "  ${C_BOLD}[4/5] Measuring backup size${C_RESET}"
-    local size_bytes size_human
-    size_bytes=$(stat -c%s "$backup_file" 2>/dev/null || echo "0")
-    size_human=$(du -sh "$backup_file" 2>/dev/null | cut -f1)
-    echo "  ${C_GREEN}      ✓ Size: ${size_human} (${size_bytes} bytes)${C_RESET}"
+     echo "  ${C_BOLD}[4/6] Encrypting backup with GPG (AES-256)${C_RESET}"
+    local encrypted_file="${backup_file}.gpg"
+    if command -v gpg &>/dev/null; then
+        gpg --symmetric \
+            --cipher-algo AES256 \
+            --batch \
+            --yes \
+            --passphrase "${NOOBTECH_BACKUP_KEY:-noobtech2024}" \
+            --output "$encrypted_file" \
+            "$backup_file" 2>/dev/null && {
+                rm -f "$backup_file"         # remove unencrypted original
+                backup_file="$encrypted_file"
+                log_info "BACKUP" "Encrypted: $(basename "$encrypted_file")"
+                echo "  ${C_GREEN}      ✓ Encrypted with AES-256${C_RESET}"
+            }
+    else
+        log_warning "BACKUP" "gpg not installed — skipping encryption (backup is unencrypted)"
+        echo "  ${C_YELLOW}      ⚠ gpg not found — skipping encryption${C_RESET}"
+    fi
     echo ""
 
     # ── STEP 5: Register in database ────────────────────────────────────────
-    echo "  ${C_BOLD}[5/5] Registering in backup registry${C_RESET}"
+    echo "  ${C_BOLD}[6/6] Registering in backup registry${C_RESET}"
     _register_backup "$backup_id" "$type" "$target" "$backup_file" \
                      "$size_bytes" "$checksum"
     echo "  ${C_GREEN}      ✓ Registered: $backup_id${C_RESET}"
@@ -299,10 +313,36 @@ backup_restore() {
     echo "  ${C_GREEN}      ✓ Destination ready: $destination${C_RESET}"
 
     # Step 3: Extract
-    echo ""
-    echo "  ${C_BOLD}[3/4] Extracting backup${C_RESET}"
-    log_info "BACKUP" "Running: tar -xzf $backup_file -C $destination"
-    tar -xzf "$backup_file" -C "$destination" 2>/dev/null
+     echo ""
+    echo "  ${C_BOLD}[3/4] Decrypting & extracting backup${C_RESET}"
+
+    # Check if backup is GPG encrypted
+    if [[ "$backup_file" == *.gpg ]]; then
+        local decrypted_file="${backup_file%.gpg}"   # strip .gpg extension
+        log_info "BACKUP" "Decrypting: $(basename "$backup_file")"
+
+        if ! command -v gpg &>/dev/null; then
+            log_error "BACKUP" "gpg is required to restore encrypted backups"
+            return 1
+        fi
+
+        gpg --decrypt \
+            --batch \
+            --yes \
+            --passphrase "${NOOBTECH_BACKUP_KEY:-noobtech2024}" \
+            --output "$decrypted_file" \
+            "$backup_file" 2>/dev/null || {
+                log_error "BACKUP" "Decryption failed — wrong passphrase or corrupted file"
+                return 1
+            }
+
+        log_info "BACKUP" "Running: tar -xzf $(basename "$decrypted_file") -C $destination"
+        tar -xzf "$decrypted_file" -C "$destination" 2>/dev/null
+        rm -f "$decrypted_file"   # clean up decrypted temp file
+    else
+        log_info "BACKUP" "Running: tar -xzf $(basename "$backup_file") -C $destination"
+        tar -xzf "$backup_file" -C "$destination" 2>/dev/null
+    fi
     echo "  ${C_GREEN}      ✓ Extracted successfully${C_RESET}"
 
     # Step 4: Update registry
@@ -340,7 +380,12 @@ backup_verify() {
     fi
 
     local backup_file
-    backup_file=$(find "$BACKUP_DIR" -name "${backup_id}_*.tar.gz" 2>/dev/null | head -1)
+    backup_file=$(find "$BACKUP_DIR" \( -name "${backup_id}_*.tar.gz.gpg" -o -name "${backup_id}_*.tar.gz" \) 2>/dev/null | head -1)
+
+    if [[ "$backup_file" == *.gpg ]]; then
+        [ "$silent" != "--silent" ] && \
+            echo "  ${C_CYAN}  ℹ Encrypted backup — verifying checksum of original archive${C_RESET}"
+    fi
 
     if [ -z "$backup_file" ] || [ ! -f "$backup_file" ]; then
         log_error "BACKUP" "Backup not found: $backup_id"
@@ -388,7 +433,15 @@ backup_list() {
     log_section "Backup Registry"
 
     local backups_found
-    backups_found=$(find "$BACKUP_DIR" -name "BK_*.tar.gz" 2>/dev/null | sort -r)
+    backups_found=$(find "$BACKUP_DIR" \( -name "BK_*.tar.gz.gpg" -o -name "BK_*.tar.gz" \) 2>/dev/null | sort -r)
+    # backups_found=$(find "$BACKUP_DIR" -name "BK_*.tar.gz" 2>/dev/null | sort -r)
+
+            # After the existing status check:
+        local enc_flag=""
+        [[ "$f" == *.gpg ]] && enc_flag=" ${C_CYAN}🔒${C_RESET}"
+
+        printf "  %-22s %-12s %-12s %-8s %s %s%s\n" \
+            "$bid" "$type" "$target" "$size" "$date" "$status" "$enc_flag"
 
     if [ -z "$backups_found" ]; then
         echo "  No backups found. Run: backup create full database"
