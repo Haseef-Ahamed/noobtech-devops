@@ -23,6 +23,12 @@
 #     Weekly:  keep last 4
 #     Monthly: keep last 12
 #     WHY: Disk space management — old backups auto-delete
+#
+#   GPG encryption (AES-256):
+#     gpg --symmetric --cipher-algo AES256 file
+#     WHY: Sensitive backups (DB dumps, configs) must be encrypted at rest
+#     The MD5 checksum is generated AFTER encryption on the .gpg file
+#     so verify always targets a file that actually exists on disk
 # =============================================================================
 
 source "$NOOBTECH_ROOT/lib/logger.sh"
@@ -63,11 +69,11 @@ cmd_backup() {
     _init_registry
 
     case "$action" in
-        create)  backup_create "$@" ;;
-        restore) backup_restore "$@" ;;
-        verify)  backup_verify "$@" ;;
-        list)    backup_list "$@" ;;
-        clean)   backup_clean "$@" ;;
+        create)   backup_create "$@" ;;
+        restore)  backup_restore "$@" ;;
+        verify)   backup_verify "$@" ;;
+        list)     backup_list "$@" ;;
+        clean)    backup_clean "$@" ;;
         --help|-h)
             cat << EOF
 
@@ -119,9 +125,9 @@ backup_create() {
     }
 
     # Generate unique backup ID and filename
+    # NOTE: backup_file starts as .tar.gz but may change to .tar.gz.gpg after Step 3
     local backup_id="BK_$(timestamp_short)"
     local backup_file="$BACKUP_DIR/${backup_id}_${type}_${target}.tar.gz"
-    local checksum_file="${backup_file}.md5"
 
     log_info "BACKUP" "Backup ID:   $backup_id"
     log_info "BACKUP" "Type:        $type"
@@ -130,7 +136,7 @@ backup_create() {
     echo ""
 
     # ── STEP 1: Identify what to back up ────────────────────────────────────
-    echo "  ${C_BOLD}[1/5] Identifying source data${C_RESET}"
+    echo "  ${C_BOLD}[1/6] Identifying source data${C_RESET}"
     local source_desc=""
     case "$target" in
         database)
@@ -156,19 +162,16 @@ backup_create() {
     echo ""
 
     # ── STEP 2: Run the backup ───────────────────────────────────────────────
-    echo "  ${C_BOLD}[2/5] Creating $type backup${C_RESET}"
+    echo "  ${C_BOLD}[2/6] Creating $type backup${C_RESET}"
 
     case "$type" in
         full)
-            # tar -czf: create(-c) gzip(-z) archive to file(-f)
-            # We back up the configs dir as a real example
             log_info "BACKUP" "Running: tar -czf $backup_file [source]"
             tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
             echo "  ${C_GREEN}      ✓ Full backup created${C_RESET}"
             ;;
         incremental)
             # --newer: only include files modified after a reference timestamp
-            # In production: --newer=/path/to/last_backup_timestamp
             local ref_file="$NOOBTECH_ROOT/data/.last_backup_ts"
             if [ ! -f "$ref_file" ]; then
                 log_warning "BACKUP" "No previous backup found — doing full backup instead"
@@ -178,13 +181,11 @@ backup_create() {
                     "$NOOBTECH_ROOT/configs" 2>/dev/null || \
                 tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
             fi
-            # Update the reference timestamp
             touch "$NOOBTECH_ROOT/data/.last_backup_ts"
             echo "  ${C_GREEN}      ✓ Incremental backup created${C_RESET}"
             ;;
         database)
-            # In production: mysqldump --all-databases > dump.sql, then tar
-            # Here we create a simulated dump file inside the archive
+            # In production: mysqldump --all-databases | gzip > dump.sql.gz
             local tmp_dump="/tmp/db_dump_$(timestamp_short).sql"
             {
                 echo "-- MySQL Database Dump"
@@ -210,18 +211,11 @@ backup_create() {
     esac
     echo ""
 
-    # ── STEP 3: Generate MD5 checksum ───────────────────────────────────────
-    # This is the "fingerprint" — used later to verify integrity
-    echo "  ${C_BOLD}[3/5] Generating MD5 checksum${C_RESET}"
-    md5sum "$backup_file" > "$checksum_file"
-    local checksum
-    checksum=$(awk '{print $1}' "$checksum_file")
-    log_info "BACKUP" "Checksum: $checksum"
-    echo "  ${C_GREEN}      ✓ Checksum: $checksum${C_RESET}"
-    echo ""
-
-    # ── STEP 4: Get file size ────────────────────────────────────────────────
-     echo "  ${C_BOLD}[4/6] Encrypting backup with GPG (AES-256)${C_RESET}"
+    # ── STEP 3: GPG Encryption ───────────────────────────────────────────────
+    # Encrypt BEFORE checksum so the MD5 fingerprint targets the final .gpg file
+    # WHY ORDER MATTERS: If we checksum .tar.gz then delete it, the .md5 becomes
+    # useless because md5sum -c needs the original file present to re-verify it.
+    echo "  ${C_BOLD}[3/6] Encrypting backup with GPG (AES-256)${C_RESET}"
     local encrypted_file="${backup_file}.gpg"
     if command -v gpg &>/dev/null; then
         gpg --symmetric \
@@ -231,8 +225,8 @@ backup_create() {
             --passphrase "${NOOBTECH_BACKUP_KEY:-noobtech2024}" \
             --output "$encrypted_file" \
             "$backup_file" 2>/dev/null && {
-                rm -f "$backup_file"         # remove unencrypted original
-                backup_file="$encrypted_file"
+                rm -f "$backup_file"          # remove unencrypted original
+                backup_file="$encrypted_file" # backup_file now points to .gpg
                 log_info "BACKUP" "Encrypted: $(basename "$encrypted_file")"
                 echo "  ${C_GREEN}      ✓ Encrypted with AES-256${C_RESET}"
             }
@@ -242,7 +236,28 @@ backup_create() {
     fi
     echo ""
 
-    # ── STEP 5: Register in database ────────────────────────────────────────
+    # ── STEP 4: Generate MD5 checksum ───────────────────────────────────────
+    # Checksum is taken on the FINAL file (.tar.gz.gpg or .tar.gz if no gpg)
+    # WHY AFTER GPG: backup_file now points to the file that will exist on disk,
+    # so md5sum -c can always find and re-verify it successfully.
+    echo "  ${C_BOLD}[4/6] Generating MD5 checksum${C_RESET}"
+    local checksum_file="${backup_file}.md5"
+    local checksum
+    md5sum "$backup_file" > "$checksum_file"
+    checksum=$(awk '{print $1}' "$checksum_file")
+    log_info "BACKUP" "Checksum: $checksum"
+    echo "  ${C_GREEN}      ✓ Checksum: $checksum${C_RESET}"
+    echo ""
+
+    # ── STEP 5: Measure file size ────────────────────────────────────────────
+    echo "  ${C_BOLD}[5/6] Measuring backup size${C_RESET}"
+    local size_bytes size_human
+    size_bytes=$(stat -c%s "$backup_file" 2>/dev/null || echo "0")
+    size_human=$(du -sh "$backup_file" 2>/dev/null | cut -f1)
+    echo "  ${C_GREEN}      ✓ Size: ${size_human} (${size_bytes} bytes)${C_RESET}"
+    echo ""
+
+    # ── STEP 6: Register in database ────────────────────────────────────────
     echo "  ${C_BOLD}[6/6] Registering in backup registry${C_RESET}"
     _register_backup "$backup_id" "$type" "$target" "$backup_file" \
                      "$size_bytes" "$checksum"
@@ -260,10 +275,11 @@ backup_create() {
     echo ""
     echo "  ${C_BOLD}Backup Summary:${C_RESET}"
     echo "  ─────────────────────────────────"
-    printf "  %-12s %s\n" "ID:"       "$backup_id"
-    printf "  %-12s %s\n" "File:"     "$(basename "$backup_file")"
-    printf "  %-12s %s\n" "Size:"     "$size_human"
-    printf "  %-12s %s\n" "Checksum:" "${checksum:0:16}..."
+    printf "  %-12s %s\n" "ID:"        "$backup_id"
+    printf "  %-12s %s\n" "File:"      "$(basename "$backup_file")"
+    printf "  %-12s %s\n" "Size:"      "$size_human"
+    printf "  %-12s %s\n" "Encrypted:" "$(command -v gpg &>/dev/null && echo 'Yes (AES-256)' || echo 'No (gpg not found)')"
+    printf "  %-12s %s\n" "Checksum:"  "${checksum:0:16}..."
     echo ""
 }
 
@@ -281,9 +297,10 @@ backup_restore() {
 
     log_section "Restoring Backup: $backup_id"
 
-    # Find the backup file
+    # Find the backup file — check for .gpg first, then plain .tar.gz
     local backup_file
-    backup_file=$(find "$BACKUP_DIR" -name "${backup_id}_*.tar.gz" 2>/dev/null | head -1)
+    backup_file=$(find "$BACKUP_DIR" \( -name "${backup_id}_*.tar.gz.gpg" \
+        -o -name "${backup_id}_*.tar.gz" \) 2>/dev/null | head -1)
 
     if [ -z "$backup_file" ] || [ ! -f "$backup_file" ]; then
         log_error "BACKUP" "Backup not found: $backup_id"
@@ -294,7 +311,7 @@ backup_restore() {
     log_info "BACKUP" "Found: $(basename "$backup_file")"
     log_info "BACKUP" "Destination: $destination"
 
-    # Step 1: Verify integrity before restoring
+    # ── STEP 1: Verify integrity before restoring ────────────────────────────
     echo ""
     echo "  ${C_BOLD}[1/4] Verifying backup integrity${C_RESET}"
     if ! backup_verify "$backup_id" --silent; then
@@ -306,19 +323,19 @@ backup_restore() {
         echo "  ${C_GREEN}      ✓ Integrity verified${C_RESET}"
     fi
 
-    # Step 2: Create destination
+    # ── STEP 2: Create destination ───────────────────────────────────────────
     echo ""
     echo "  ${C_BOLD}[2/4] Preparing destination${C_RESET}"
     mkdir -p "$destination"
     echo "  ${C_GREEN}      ✓ Destination ready: $destination${C_RESET}"
 
-    # Step 3: Extract
-     echo ""
+    # ── STEP 3: Decrypt (if encrypted) then Extract ──────────────────────────
+    echo ""
     echo "  ${C_BOLD}[3/4] Decrypting & extracting backup${C_RESET}"
 
-    # Check if backup is GPG encrypted
     if [[ "$backup_file" == *.gpg ]]; then
-        local decrypted_file="${backup_file%.gpg}"   # strip .gpg extension
+        # Strip .gpg to get the target .tar.gz name for extraction
+        local decrypted_file="${backup_file%.gpg}"
         log_info "BACKUP" "Decrypting: $(basename "$backup_file")"
 
         if ! command -v gpg &>/dev/null; then
@@ -345,7 +362,7 @@ backup_restore() {
     fi
     echo "  ${C_GREEN}      ✓ Extracted successfully${C_RESET}"
 
-    # Step 4: Update registry
+    # ── STEP 4: Update registry ──────────────────────────────────────────────
     echo ""
     echo "  ${C_BOLD}[4/4] Updating registry${C_RESET}"
     if command -v sqlite3 &>/dev/null; then
@@ -360,7 +377,7 @@ backup_restore() {
     echo "[$(timestamp)] [RESTORE] id=$backup_id destination=$destination" \
         >> "$LOG_BACKUPS"
 
-    # Show what was restored
+    # Show restored files
     echo ""
     echo "  ${C_BOLD}Restored files:${C_RESET}"
     find "$destination" -type f 2>/dev/null | head -10 | sed 's/^/  /'
@@ -379,19 +396,25 @@ backup_verify() {
         return 1
     fi
 
+    # Find backup — .gpg takes priority over plain .tar.gz
     local backup_file
-    backup_file=$(find "$BACKUP_DIR" \( -name "${backup_id}_*.tar.gz.gpg" -o -name "${backup_id}_*.tar.gz" \) 2>/dev/null | head -1)
+    backup_file=$(find "$BACKUP_DIR" \( -name "${backup_id}_*.tar.gz.gpg" \
+        -o -name "${backup_id}_*.tar.gz" \) 2>/dev/null | head -1)
 
-    if [[ "$backup_file" == *.gpg ]]; then
-        [ "$silent" != "--silent" ] && \
-            echo "  ${C_CYAN}  ℹ Encrypted backup — verifying checksum of original archive${C_RESET}"
-    fi
-
+    # Existence check FIRST before any other logic
     if [ -z "$backup_file" ] || [ ! -f "$backup_file" ]; then
         log_error "BACKUP" "Backup not found: $backup_id"
         return 1
     fi
 
+    # Inform user if the backup is encrypted
+    if [[ "$backup_file" == *.gpg ]]; then
+        [ "$silent" != "--silent" ] && \
+            echo "  ${C_CYAN}  ℹ Encrypted backup — verifying checksum of .gpg file${C_RESET}"
+    fi
+
+    # checksum_file lives next to backup_file with .md5 appended
+    # e.g. BK_xxx.tar.gz.gpg → BK_xxx.tar.gz.gpg.md5
     local checksum_file="${backup_file}.md5"
 
     if [ "$silent" != "--silent" ]; then
@@ -400,14 +423,13 @@ backup_verify() {
         echo ""
     fi
 
-    # Check that the .md5 file exists
     if [ ! -f "$checksum_file" ]; then
         log_warning "BACKUP" "No checksum file found — cannot verify"
         return 1
     fi
 
-    # md5sum -c: recomputes MD5 and compares to stored value
-    # This tells us if the file was corrupted or tampered with
+    # md5sum -c: recomputes MD5 of backup_file and compares to stored value
+    # Both the .gpg file AND its .md5 must exist on disk for this to succeed
     if md5sum -c "$checksum_file" &>/dev/null; then
         if [ "$silent" != "--silent" ]; then
             echo "  ${C_GREEN}✓ Checksum VALID — backup is intact${C_RESET}"
@@ -433,15 +455,8 @@ backup_list() {
     log_section "Backup Registry"
 
     local backups_found
-    backups_found=$(find "$BACKUP_DIR" \( -name "BK_*.tar.gz.gpg" -o -name "BK_*.tar.gz" \) 2>/dev/null | sort -r)
-    # backups_found=$(find "$BACKUP_DIR" -name "BK_*.tar.gz" 2>/dev/null | sort -r)
-
-            # After the existing status check:
-        local enc_flag=""
-        [[ "$f" == *.gpg ]] && enc_flag=" ${C_CYAN}🔒${C_RESET}"
-
-        printf "  %-22s %-12s %-12s %-8s %s %s%s\n" \
-            "$bid" "$type" "$target" "$size" "$date" "$status" "$enc_flag"
+    backups_found=$(find "$BACKUP_DIR" \( -name "BK_*.tar.gz.gpg" \
+        -o -name "BK_*.tar.gz" \) 2>/dev/null | sort -r)
 
     if [ -z "$backups_found" ]; then
         echo "  No backups found. Run: backup create full database"
@@ -455,26 +470,31 @@ backup_list() {
     while IFS= read -r f; do
         [ -z "$f" ] && continue
         local fname; fname=$(basename "$f")
-        # Parse: BK_20241120_143215_full_database.tar.gz
+
+        # Parse filename: BK_20241120_143215_full_database.tar.gz[.gpg]
         local bid; bid=$(echo "$fname" | cut -d_ -f1-3)
-        local type; type=$(echo "$fname" | sed 's/BK_[0-9_]*_//; s/_.*.tar.gz//')
-        local target; target=$(echo "$fname" | sed 's/.*_\([^_]*\)\.tar\.gz/\1/')
+        local type; type=$(echo "$fname" | sed 's/BK_[0-9_]*_//; s/_.*.tar.gz.*//')
+        local target; target=$(echo "$fname" | sed 's/.*_\([^_]*\)\.tar\.gz.*/\1/')
         local size; size=$(du -sh "$f" 2>/dev/null | cut -f1)
         local date; date=$(echo "$bid" | sed 's/BK_//' | sed 's/_/ /' | \
             awk '{print substr($1,1,4)"-"substr($1,5,2)"-"substr($1,7,2)" "substr($2,1,2)":"substr($2,3,2)}')
 
-        # Check if verified
+        # Verify status: check for .md5 file alongside the backup
         local status="${C_GREEN}✓${C_RESET}"
         [ ! -f "${f}.md5" ] && status="${C_YELLOW}?${C_RESET}"
 
-        printf "  %-22s %-12s %-12s %-8s %s %s\n" \
-            "$bid" "$type" "$target" "$size" "$date" "$status"
+        # Lock icon for encrypted backups
+        local enc_flag=""
+        [[ "$f" == *.gpg ]] && enc_flag=" ${C_CYAN}🔒${C_RESET}"
+
+        printf "  %-22s %-12s %-12s %-8s %s %s%s\n" \
+            "$bid" "$type" "$target" "$size" "$date" "$status" "$enc_flag"
     done <<< "$backups_found"
 
     echo ""
     local count; count=$(echo "$backups_found" | grep -c "^" || true)
     echo "  Total: $count backup(s)"
-    echo "  ${C_GREEN}✓${C_RESET} = checksum verified  ${C_YELLOW}?${C_RESET} = not verified"
+    echo "  ${C_GREEN}✓${C_RESET} = verified  ${C_YELLOW}?${C_RESET} = not verified  ${C_CYAN}🔒${C_RESET} = encrypted"
     echo ""
 }
 
@@ -485,13 +505,12 @@ backup_clean() {
     local silent="${1:-}"
     [ "$silent" != "--silent" ] && log_section "Applying Retention Policy"
 
-    # Retention: keep 7 daily, 4 weekly, 12 monthly
     local daily_keep=7
-    local deleted=0
 
-    # Get all backup files sorted oldest first
+    # Find both .gpg and plain .tar.gz, sorted oldest first
     local all_backups
-    all_backups=$(find "$BACKUP_DIR" -name "BK_*.tar.gz" 2>/dev/null | sort)
+    all_backups=$(find "$BACKUP_DIR" \( -name "BK_*.tar.gz.gpg" \
+        -o -name "BK_*.tar.gz" \) 2>/dev/null | sort)
 
     local total; total=$(echo "$all_backups" | grep -c "^" 2>/dev/null || echo 0)
 
@@ -501,7 +520,6 @@ backup_clean() {
         return 0
     fi
 
-    # Delete oldest backups beyond retention limit
     local to_delete=$((total - daily_keep))
     [ "$silent" != "--silent" ] && \
         log_info "BACKUP" "Total: $total | Keeping: $daily_keep | Deleting: $to_delete"
@@ -509,8 +527,8 @@ backup_clean() {
     echo "$all_backups" | head -"$to_delete" | while IFS= read -r f; do
         [ -z "$f" ] && continue
         local fname; fname=$(basename "$f")
+        # Remove the backup file AND its .md5 checksum file
         rm -f "$f" "${f}.md5" 2>/dev/null || true
-        deleted=$((deleted+1))
         [ "$silent" != "--silent" ] && \
             echo "  ${C_YELLOW}Deleted:${C_RESET} $fname"
         echo "[$(timestamp)] [DELETED] $fname (retention policy)" >> "$LOG_BACKUPS"
