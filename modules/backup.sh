@@ -34,7 +34,7 @@ REGISTRY="$NOOBTECH_ROOT/data/backup_registry.db"
 # Initialize SQLite registry on first use
 _init_registry() {
     if ! command -v sqlite3 &>/dev/null; then
-        log_warning "BACKUP" "sqlite3 not found — using flat file registry instead"
+        log_debug "BACKUP" "sqlite3 not found — using flat file registry instead"
         REGISTRY="$NOOBTECH_ROOT/data/backup_registry.txt"
         return
     fi
