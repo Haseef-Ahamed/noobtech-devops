@@ -1,0 +1,31 @@
+======================================================
+  SECURITY AUDIT REPORT
+  Generated : 2026-03-26 10:29:36
+  Target    : local
+======================================================
+
+  FINDINGS SUMMARY:
+  CRITICAL:    0  ← fix immediately
+  HIGH:        2  ← fix this week
+  MEDIUM:      2   ← fix this month
+  LOW:         2   ← nice to have
+  PASSED:      8
+
+  DETAILED FINDINGS (from security_events.log):
+------------------------------------------------------
+[MEDIUM] [SSH] PermitRootLogin not set — default may allow root login
+[HIGH] [SSH] PasswordAuthentication = yes — brute force risk
+[LOW] [SSH] SSH on default port 22 — consider changing to reduce scan noise
+[HIGH] [NETWORK] UFW firewall is not active — run: sudo ufw enable
+[LOW] [SYSTEM] auditd not installed — run: sudo apt install auditd
+[MEDIUM] [SYSTEM] fail2ban not installed — run: sudo apt install fail2ban
+[SCAN] target=local critical=0 high=2 medium=2 low=2
+[MEDIUM] [SSH] PermitRootLogin not set — default may allow root login
+[HIGH] [SSH] PasswordAuthentication = yes — brute force risk
+[LOW] [SSH] SSH on default port 22 — consider changing to reduce scan noise
+[HIGH] [NETWORK] UFW firewall is not active — run: sudo ufw enable
+[LOW] [SYSTEM] auditd not installed — run: sudo apt install auditd
+[MEDIUM] [SYSTEM] fail2ban not installed — run: sudo apt install fail2ban
+
+  See docs/SECURITY_GUIDE.md for fix instructions.
+======================================================

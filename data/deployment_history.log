@@ -8,3 +8,7 @@
 [2026-03-24 10:14:43] [SUCCESS] id=deploy_webapp_staging_20260324_101437
 [2026-03-24 10:14:47] [START] id=deploy_webapp_staging_20260324_101446 app=webapp env=staging strategy=canary
 [2026-03-24 10:15:03] [SUCCESS] id=deploy_webapp_staging_20260324_101446
+[2026-03-26 10:29:12] [START] id=deploy_webapp_staging_20260326_102912 app=webapp env=staging strategy=rolling
+[2026-03-26 10:29:18] [SUCCESS] id=deploy_webapp_staging_20260326_102912
+[2026-03-26 10:29:18] [START] id=deploy_webapp_staging_20260326_102918 app=webapp env=staging strategy=canary
+[2026-03-26 10:29:35] [SUCCESS] id=deploy_webapp_staging_20260326_102918
