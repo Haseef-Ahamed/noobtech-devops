@@ -12,3 +12,5 @@
 [2026-03-26 10:29:18] [SUCCESS] id=deploy_webapp_staging_20260326_102912
 [2026-03-26 10:29:18] [START] id=deploy_webapp_staging_20260326_102918 app=webapp env=staging strategy=canary
 [2026-03-26 10:29:35] [SUCCESS] id=deploy_webapp_staging_20260326_102918
+[2026-03-26 10:34:07] [START] id=deploy_webapp_staging_20260326_103406 app=webapp env=staging strategy=rolling
+[2026-03-26 10:34:12] [FAILED] id=deploy_webapp_staging_20260326_103406
