@@ -1,0 +1,50 @@
+name: CI — Validate Scripts
+
+on:
+  push:
+    branches: [ main, feature/*, bugfix/* ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    name: Validate bash scripts
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+
+      - name: Run shellcheck on all scripts
+        run: |
+          shellcheck noobtech-devops
+          shellcheck lib/*.sh
+          shellcheck modules/*.sh
+
+      - name: Test help output
+        run: |
+          chmod +x noobtech-devops
+          ./noobtech-devops --help
+          ./noobtech-devops --version
+
+      - name: Test server list
+        run: ./noobtech-devops server list
+
+      - name: Test config module
+        run: |
+          ./noobtech-devops config apply web_server dev-web-01
+          ./noobtech-devops config check dev-web-01
+
+      - name: Test backup module
+        run: |
+          ./noobtech-devops backup create full database
+          ./noobtech-devops backup list
+
+      - name: Test report generation
+        run: |
+          ./noobtech-devops report generate daily
+          ./noobtech-devops report generate weekly
+          ls reports/*.html
