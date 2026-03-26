@@ -1,0 +1,28 @@
+# Deployment manifest — webapp production
+app: webapp
+version: latest
+environment: production
+strategy: rolling
+
+servers:
+  - prod-web-01
+  - prod-web-02
+
+health_check:
+  url: /health
+  expected_status: 200
+  timeout_seconds: 5
+  retries: 3
+  warmup_seconds: 30
+
+rollback:
+  auto: true
+  on_health_check_fail: true
+
+approval:
+  required: true
+  prompt: "Type 'yes' to deploy to PRODUCTION"
+
+notifications:
+  on_success: true
+  on_failure: true

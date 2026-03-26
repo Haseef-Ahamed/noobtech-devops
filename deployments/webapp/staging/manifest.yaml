@@ -1,0 +1,24 @@
+# Deployment manifest — webapp staging
+app: webapp
+version: latest
+environment: staging
+strategy: rolling
+
+servers:
+  - stg-web-01
+  - stg-web-02
+
+health_check:
+  url: /health
+  expected_status: 200
+  timeout_seconds: 5
+  retries: 3
+  warmup_seconds: 10
+
+rollback:
+  auto: true
+  on_health_check_fail: true
+
+notifications:
+  on_success: true
+  on_failure: true
