@@ -2,7 +2,18 @@
 
 All notable changes follow [Conventional Commits](https://conventionalcommits.org).
 
-## [1.0.0] — 2024-11-20
+## [1.0.0] — 2026-03-27
+
+### Bug Fixes
+- `fix:` health check always passes in local simulation mode
+- `fix:` incremental backup now respects target parameter
+- `fix:` suppress sqlite3 warning — downgrade to debug level
+- `fix:` Security scan stops at [1/5] — grep returns exit 1 under set -e → add || true
+
+### Added
+- `feat:` GPG AES-256 encryption added to backup module
+- `feat:` ssh_helper.sh for remote server operations
+- `feat:` GitHub Actions CI pipeline
 
 ### Features
 - `feat:` Initial project scaffold — full directory structure, .gitignore
@@ -20,12 +31,6 @@ All notable changes follow [Conventional Commits](https://conventionalcommits.or
 - `feat:` monitor — real CPU/MEM/DISK from /proc/stat, free, df
 - `feat:` security module — 14 checks across 5 categories
 - `feat:` report module — daily/weekly/monthly HTML reports
-
-### Bug Fixes
-- `fix:` Security scan stops at [1/5] — grep returns exit 1 under set -e → add || true
-- `fix:` log_debug kills script — [ ] && {} shortcircuit → replace with if/then
-- `fix:` parse_global_options exits on unknown args — add *) : ;; catch-all
-- `fix:` Main script re-runs when sourced — add BASH_SOURCE guard
 
 ### Documentation
 - `docs:` README.md — installation, quick start, module reference
