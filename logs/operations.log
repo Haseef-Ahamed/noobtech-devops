@@ -556,3 +556,72 @@
 [2026-03-27 15:10:47] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150954 ===
 [2026-03-27 15:10:47] [SUCCESS] [BACKUP] Backup BK_20260327_150954 — integrity verified
 [2026-03-27 15:10:47] [SUCCESS] [BACKUP] Backup BK_20260327_150954 — integrity verified
+[2026-03-27 17:55:08] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 17:55:08] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 17:55:37] [ERROR] [CONFIG] Usage: config apply <profile> <server>
+[2026-03-27 17:55:56] [INFO] [SYSTEM] === Config Remediation: dev-web-01 ===
+[2026-03-27 17:55:56] [INFO] [SYSTEM] === Config Remediation: dev-web-01 ===
+[2026-03-27 17:55:56] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 17:55:56] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_175601.bak
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_175601.bak
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: firewall_rules → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: firewall_rules → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_firewall_rules_20260327_175601.bak
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_firewall_rules_20260327_175601.bak
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'firewall_rules' to 'dev-web-01'
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'firewall_rules' to 'dev-web-01'
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: users → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [SYSTEM] === Applying Config: users → dev-web-01 ===
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_users_20260327_175601.bak
+[2026-03-27 17:56:01] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_users_20260327_175601.bak
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'users' to 'dev-web-01'
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Applied 'users' to 'dev-web-01'
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Remediation complete on dev-web-01
+[2026-03-27 17:56:01] [SUCCESS] [CONFIG] Remediation complete on dev-web-01
+[2026-03-27 17:59:28] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 17:59:28] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 17:59:28] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_175928.bak
+[2026-03-27 17:59:28] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_175928.bak
+[2026-03-27 17:59:28] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 17:59:28] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 17:59:37] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-27 17:59:37] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-27 17:59:37] [INFO] [SERVER] Listed all servers
+[2026-03-27 17:59:37] [INFO] [SERVER] Listed all servers
+[2026-03-27 17:59:58] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 17:59:58] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 18:00:14] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 18:00:14] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 18:00:14] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_180014.bak
+[2026-03-27 18:00:14] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_180014.bak
+[2026-03-27 18:00:14] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 18:00:14] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 18:00:29] [INFO] [SYSTEM] === Config Remediation: dev-web-01 ===
+[2026-03-27 18:00:29] [INFO] [SYSTEM] === Config Remediation: dev-web-01 ===
+[2026-03-27 18:00:29] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 18:00:29] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_180033.bak
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260327_180033.bak
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: firewall_rules → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: firewall_rules → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_firewall_rules_20260327_180033.bak
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_firewall_rules_20260327_180033.bak
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'firewall_rules' to 'dev-web-01'
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'firewall_rules' to 'dev-web-01'
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: users → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [SYSTEM] === Applying Config: users → dev-web-01 ===
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_users_20260327_180033.bak
+[2026-03-27 18:00:33] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_users_20260327_180033.bak
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'users' to 'dev-web-01'
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Applied 'users' to 'dev-web-01'
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Remediation complete on dev-web-01
+[2026-03-27 18:00:33] [SUCCESS] [CONFIG] Remediation complete on dev-web-01

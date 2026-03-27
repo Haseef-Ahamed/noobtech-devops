@@ -1,0 +1,8 @@
+[users]
+deploy:deploy,www-data:/bin/bash:yes
+monitor:monitor:/bin/bash:yes
+backup:backup:/bin/bash:yes
+[security]
+password_min_length = 12
+disable_root_login = yes
+lock_after_failures = 5
