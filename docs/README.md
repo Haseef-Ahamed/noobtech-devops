@@ -18,8 +18,8 @@ This tool solves all five in a single command interface.
 ## Installation
 
 ```bash
-git clone https://github.com/noobtech/noobtech-devops-platform.git
-cd noobtech-devops-platform
+git clone https://github.com/Haseef-Ahamed/noobtech-devops.git
+cd noobtech-devops
 chmod +x noobtech-devops
 ./noobtech-devops --help
 ```
