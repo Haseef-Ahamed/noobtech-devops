@@ -1,0 +1,8 @@
+[2026-03-24 12:29:01] [CREATE] id=BK_20260324_122900 type=full target=database size=842B
+[2026-03-24 12:29:09] [CREATE] id=BK_20260324_122909 type=database target=database size=315B
+[2026-03-26 10:29:35] [CREATE] id=BK_20260326_102935 type=full target=database size=842B
+[2026-03-26 10:29:35] [CREATE] id=BK_20260326_102935 type=database target=database size=315B
+[2026-03-26 10:31:14] [CREATE] id=BK_20260326_103114 type=full target=database size=842B
+[2026-03-26 11:29:58] [CREATE] id=BK_20260326_112957 type=full target=configs size=948B
+[2026-03-26 11:39:36] [CREATE] id=BK_20260326_113936 type=full target=configs size=948B
+[2026-03-26 11:40:32] [RESTORE] id=BK_20260326_113936 destination=/tmp/test_restore

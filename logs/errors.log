@@ -1,0 +1,6 @@
+[2026-03-26 10:34:10] [ERROR] [DEPLOY] stg-web-01 — health check failed
+[2026-03-26 10:34:12] [ERROR] [DEPLOY] Deployment deploy_webapp_staging_20260326_103406 FAILED — rollback executed
+[2026-03-26 11:30:28] [ERROR] [BACKUP] Integrity check FAILED — backup may be corrupted
+[2026-03-26 11:31:54] [ERROR] [BACKUP] Integrity check FAILED — backup may be corrupted
+[2026-03-26 15:04:14] [ERROR] [DEPLOY] stg-web-01 — health check failed
+[2026-03-26 15:04:16] [ERROR] [DEPLOY] Deployment deploy_webapp_staging_20260326_150411 FAILED — rollback executed

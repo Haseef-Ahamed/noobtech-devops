@@ -1,0 +1,501 @@
+[2026-03-24 09:56:15] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 09:56:15] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 09:56:15] [INFO] [SERVER] Listed all servers
+[2026-03-24 09:56:15] [INFO] [SERVER] Listed all servers
+[2026-03-24 09:59:00] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 09:59:00] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 09:59:00] [INFO] [SERVER] Listed all servers
+[2026-03-24 09:59:00] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:00:21] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:00:21] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:00:21] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:00:21] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:03:00] [INFO] [TEST] Logger works!
+[2026-03-24 10:03:00] [INFO] [TEST] Logger works!
+[2026-03-24 10:03:00] [SUCCESS] [TEST] Colors work!
+[2026-03-24 10:03:00] [SUCCESS] [TEST] Colors work!
+[2026-03-24 10:03:18] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:03:18] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:03:18] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:03:18] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:03:55] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:03:55] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:03:55] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:03:55] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:04:22] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:04:22] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:04:22] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:04:22] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:07:49] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:07:49] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:07:50] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:07:50] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:07:56] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-24 10:07:56] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-24 10:07:56] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260324_100756.bak
+[2026-03-24 10:07:56] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260324_100756.bak
+[2026-03-24 10:07:56] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-24 10:07:56] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-24 10:08:04] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-24 10:08:04] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-24 10:09:30] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-24 10:09:30] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-24 10:09:30] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_100930 | Strategy: rolling
+[2026-03-24 10:09:30] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_100930 | Strategy: rolling
+[2026-03-24 10:09:30] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:09:30] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:09:30] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:09:30] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:09:33] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:09:33] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:09:33] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:09:33] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:09:36] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:09:36] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:09:36] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_100930 completed
+[2026-03-24 10:09:36] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_100930 completed
+[2026-03-24 10:09:36] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_100936.html
+[2026-03-24 10:09:36] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_100936.html
+[2026-03-24 10:09:44] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-24 10:09:44] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-24 10:09:44] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_100944 | Strategy: canary
+[2026-03-24 10:09:44] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_100944 | Strategy: canary
+[2026-03-24 10:09:44] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-24 10:09:44] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-24 10:09:44] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:09:44] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:09:47] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:09:47] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:09:58] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:09:58] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:09:58] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:09:58] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:10:01] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:10:01] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:10:01] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_100944 completed
+[2026-03-24 10:10:01] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_100944 completed
+[2026-03-24 10:10:01] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101001.html
+[2026-03-24 10:10:01] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101001.html
+[2026-03-24 10:12:21] [INFO] [SYSTEM] === Deployment: webapp → staging (blue-green) ===
+[2026-03-24 10:12:21] [INFO] [SYSTEM] === Deployment: webapp → staging (blue-green) ===
+[2026-03-24 10:12:21] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101221 | Strategy: blue-green
+[2026-03-24 10:12:21] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101221 | Strategy: blue-green
+[2026-03-24 10:12:21] [INFO] [DEPLOY] Blue-Green | Active=blue → Deploying to green
+[2026-03-24 10:12:21] [INFO] [DEPLOY] Blue-Green | Active=blue → Deploying to green
+[2026-03-24 10:12:21] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:12:21] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:12:24] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:12:24] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:12:24] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:12:24] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:12:27] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:12:27] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:12:27] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101221 completed
+[2026-03-24 10:12:27] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101221 completed
+[2026-03-24 10:12:27] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101227.html
+[2026-03-24 10:12:27] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101227.html
+[2026-03-24 10:13:52] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:13:52] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-24 10:13:52] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:13:52] [INFO] [SERVER] Listed all servers
+[2026-03-24 10:14:00] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-24 10:14:00] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-24 10:14:00] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260324_101400.bak
+[2026-03-24 10:14:00] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260324_101400.bak
+[2026-03-24 10:14:00] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-24 10:14:00] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-24 10:14:32] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-24 10:14:32] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-24 10:14:37] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-24 10:14:37] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-24 10:14:37] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101437 | Strategy: rolling
+[2026-03-24 10:14:37] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101437 | Strategy: rolling
+[2026-03-24 10:14:37] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:14:37] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:14:37] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:14:37] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:14:40] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:14:40] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:14:40] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:14:40] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:14:43] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:14:43] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:14:43] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101437 completed
+[2026-03-24 10:14:43] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101437 completed
+[2026-03-24 10:14:43] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101443.html
+[2026-03-24 10:14:43] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101443.html
+[2026-03-24 10:14:46] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-24 10:14:46] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-24 10:14:46] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101446 | Strategy: canary
+[2026-03-24 10:14:46] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260324_101446 | Strategy: canary
+[2026-03-24 10:14:47] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-24 10:14:47] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-24 10:14:47] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:14:47] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-24 10:14:50] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:14:50] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-24 10:15:00] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:15:00] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-24 10:15:00] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:15:00] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-24 10:15:03] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:15:03] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-24 10:15:03] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101446 completed
+[2026-03-24 10:15:03] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260324_101446 completed
+[2026-03-24 10:15:03] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101503.html
+[2026-03-24 10:15:03] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260324_101503.html
+[2026-03-24 12:24:28] [INFO] [BACKUP] Module coming soon. Action: create
+[2026-03-24 12:24:28] [INFO] [BACKUP] Module coming soon. Action: create
+[2026-03-24 12:24:36] [INFO] [BACKUP] Module coming soon. Action: create
+[2026-03-24 12:24:36] [INFO] [BACKUP] Module coming soon. Action: create
+[2026-03-24 12:24:45] [INFO] [BACKUP] Module coming soon. Action: list
+[2026-03-24 12:24:45] [INFO] [BACKUP] Module coming soon. Action: list
+[2026-03-24 12:24:57] [INFO] [MONITOR] Module coming soon. Action: dashboard
+[2026-03-24 12:24:57] [INFO] [MONITOR] Module coming soon. Action: dashboard
+[2026-03-24 12:25:07] [INFO] [MONITOR] Module coming soon. Action: status
+[2026-03-24 12:25:07] [INFO] [MONITOR] Module coming soon. Action: status
+[2026-03-24 12:25:19] [INFO] [SECURITY] Module coming soon. Action: scan
+[2026-03-24 12:25:19] [INFO] [SECURITY] Module coming soon. Action: scan
+[2026-03-24 12:29:00] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-24 12:29:00] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-24 12:29:00] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-24 12:29:00] [INFO] [BACKUP] Backup ID:   BK_20260324_122900
+[2026-03-24 12:29:00] [INFO] [BACKUP] Backup ID:   BK_20260324_122900
+[2026-03-24 12:29:00] [INFO] [BACKUP] Type:        full
+[2026-03-24 12:29:00] [INFO] [BACKUP] Type:        full
+[2026-03-24 12:29:00] [INFO] [BACKUP] Target:      database
+[2026-03-24 12:29:00] [INFO] [BACKUP] Target:      database
+[2026-03-24 12:29:00] [INFO] [BACKUP] Output file: BK_20260324_122900_full_database.tar.gz
+[2026-03-24 12:29:00] [INFO] [BACKUP] Output file: BK_20260324_122900_full_database.tar.gz
+[2026-03-24 12:29:00] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260324_122900_full_database.tar.gz [source]
+[2026-03-24 12:29:00] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260324_122900_full_database.tar.gz [source]
+[2026-03-24 12:29:00] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-24 12:29:00] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-24 12:29:01] [SUCCESS] [BACKUP] Backup complete: BK_20260324_122900
+[2026-03-24 12:29:01] [SUCCESS] [BACKUP] Backup complete: BK_20260324_122900
+[2026-03-24 12:29:09] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-24 12:29:09] [INFO] [SYSTEM] === Creating Backup: database → database ===
+[2026-03-24 12:29:09] [INFO] [SYSTEM] === Creating Backup: database → database ===
+[2026-03-24 12:29:09] [INFO] [BACKUP] Backup ID:   BK_20260324_122909
+[2026-03-24 12:29:09] [INFO] [BACKUP] Backup ID:   BK_20260324_122909
+[2026-03-24 12:29:09] [INFO] [BACKUP] Type:        database
+[2026-03-24 12:29:09] [INFO] [BACKUP] Type:        database
+[2026-03-24 12:29:09] [INFO] [BACKUP] Target:      database
+[2026-03-24 12:29:09] [INFO] [BACKUP] Target:      database
+[2026-03-24 12:29:09] [INFO] [BACKUP] Output file: BK_20260324_122909_database_database.tar.gz
+[2026-03-24 12:29:09] [INFO] [BACKUP] Output file: BK_20260324_122909_database_database.tar.gz
+[2026-03-24 12:29:09] [INFO] [BACKUP] Checksum: 9bc27fc4010eee4ae61fd9905c15d927
+[2026-03-24 12:29:09] [INFO] [BACKUP] Checksum: 9bc27fc4010eee4ae61fd9905c15d927
+[2026-03-24 12:29:09] [SUCCESS] [BACKUP] Backup complete: BK_20260324_122909
+[2026-03-24 12:29:09] [SUCCESS] [BACKUP] Backup complete: BK_20260324_122909
+[2026-03-24 12:29:22] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-24 12:29:22] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-24 12:29:22] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-24 12:30:53] [INFO] [SYSTEM] === Live Infrastructure Dashboard ===
+[2026-03-24 12:30:53] [INFO] [SYSTEM] === Live Infrastructure Dashboard ===
+[2026-03-24 12:30:53] [INFO] [MONITOR] Dashboard rendered at 2026-03-24 12:30:53
+[2026-03-24 12:30:53] [INFO] [MONITOR] Dashboard rendered at 2026-03-24 12:30:53
+[2026-03-24 12:30:58] [INFO] [SYSTEM] === Infrastructure Status ===
+[2026-03-24 12:30:58] [INFO] [SYSTEM] === Infrastructure Status ===
+[2026-03-24 12:31:06] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-24 12:31:06] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-24 12:31:43] [INFO] [SYSTEM] === Generating Daily Report ===
+[2026-03-24 12:31:43] [INFO] [SYSTEM] === Generating Daily Report ===
+[2026-03-24 12:31:44] [SUCCESS] [REPORT] Daily report: /home/hsf/noobtech-devops/reports/daily_report_20260324_123143.html
+[2026-03-24 12:31:44] [SUCCESS] [REPORT] Daily report: /home/hsf/noobtech-devops/reports/daily_report_20260324_123143.html
+[2026-03-24 12:31:58] [INFO] [SYSTEM] === Generating Weekly Report ===
+[2026-03-24 12:31:58] [INFO] [SYSTEM] === Generating Weekly Report ===
+[2026-03-24 12:31:58] [SUCCESS] [REPORT] Weekly report: /home/hsf/noobtech-devops/reports/weekly_report_20260324_123158.html
+[2026-03-24 12:31:58] [SUCCESS] [REPORT] Weekly report: /home/hsf/noobtech-devops/reports/weekly_report_20260324_123158.html
+[2026-03-24 12:32:26] [INFO] [SYSTEM] === Generating Monthly Report ===
+[2026-03-24 12:32:26] [INFO] [SYSTEM] === Generating Monthly Report ===
+[2026-03-24 12:32:26] [SUCCESS] [REPORT] Monthly report: /home/hsf/noobtech-devops/reports/monthly_report_20260324_123226.html
+[2026-03-24 12:32:26] [SUCCESS] [REPORT] Monthly report: /home/hsf/noobtech-devops/reports/monthly_report_20260324_123226.html
+[2026-03-26 10:16:36] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:16:36] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:20:56] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:20:56] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:20:57] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:20:57] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:20:57] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:20:57] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:20:57] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:20:57] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 10:29:12] [INFO] [SERVER] Listed all servers
+[2026-03-26 10:29:12] [INFO] [SERVER] Listed all servers
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Applying Config: web_server → dev-web-01 ===
+[2026-03-26 10:29:12] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260326_102912.bak
+[2026-03-26 10:29:12] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-web-01_web_server_20260326_102912.bak
+[2026-03-26 10:29:12] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-26 10:29:12] [SUCCESS] [CONFIG] Applied 'web_server' to 'dev-web-01'
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Applying Config: database → dev-db-01 ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Applying Config: database → dev-db-01 ===
+[2026-03-26 10:29:12] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-db-01_database_20260326_102912.bak
+[2026-03-26 10:29:12] [INFO] [CONFIG] Backing up to: /home/hsf/noobtech-devops/data/config_backups/dev-db-01_database_20260326_102912.bak
+[2026-03-26 10:29:12] [SUCCESS] [CONFIG] Applied 'database' to 'dev-db-01'
+[2026-03-26 10:29:12] [SUCCESS] [CONFIG] Applied 'database' to 'dev-db-01'
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Config Drift Check: dev-web-01 ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 10:29:12] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 10:29:12] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_102912 | Strategy: rolling
+[2026-03-26 10:29:12] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_102912 | Strategy: rolling
+[2026-03-26 10:29:12] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:29:12] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:29:12] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:29:12] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:29:15] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-26 10:29:15] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-26 10:29:15] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-26 10:29:15] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-26 10:29:18] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-26 10:29:18] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-26 10:29:18] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260326_102912 completed
+[2026-03-26 10:29:18] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260326_102912 completed
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_102918.html
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_102918.html
+[2026-03-26 10:29:18] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-26 10:29:18] [INFO] [SYSTEM] === Deployment: webapp → staging (canary) ===
+[2026-03-26 10:29:18] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_102918 | Strategy: canary
+[2026-03-26 10:29:18] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_102918 | Strategy: canary
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Canary → stg-web-01 first
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:29:18] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:29:21] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-26 10:29:21] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-26 10:29:32] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:29:32] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:29:32] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-26 10:29:32] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-26 10:29:35] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-26 10:29:35] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-26 10:29:35] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260326_102918 completed
+[2026-03-26 10:29:35] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260326_102918 completed
+[2026-03-26 10:29:35] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_102935.html
+[2026-03-26 10:29:35] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_102935.html
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-26 10:29:35] [INFO] [BACKUP] Backup ID:   BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [BACKUP] Backup ID:   BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [BACKUP] Type:        full
+[2026-03-26 10:29:35] [INFO] [BACKUP] Type:        full
+[2026-03-26 10:29:35] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Output file: BK_20260326_102935_full_database.tar.gz
+[2026-03-26 10:29:35] [INFO] [BACKUP] Output file: BK_20260326_102935_full_database.tar.gz
+[2026-03-26 10:29:35] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_102935_full_database.tar.gz [source]
+[2026-03-26 10:29:35] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_102935_full_database.tar.gz [source]
+[2026-03-26 10:29:35] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 10:29:35] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 10:29:35] [SUCCESS] [BACKUP] Backup complete: BK_20260326_102935
+[2026-03-26 10:29:35] [SUCCESS] [BACKUP] Backup complete: BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Creating Backup: database → database ===
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Creating Backup: database → database ===
+[2026-03-26 10:29:35] [INFO] [BACKUP] Backup ID:   BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [BACKUP] Backup ID:   BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [BACKUP] Type:        database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Type:        database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:29:35] [INFO] [BACKUP] Output file: BK_20260326_102935_database_database.tar.gz
+[2026-03-26 10:29:35] [INFO] [BACKUP] Output file: BK_20260326_102935_database_database.tar.gz
+[2026-03-26 10:29:35] [INFO] [BACKUP] Checksum: 1bf771dc2ab9f1569ee73770c10c0b51
+[2026-03-26 10:29:35] [INFO] [BACKUP] Checksum: 1bf771dc2ab9f1569ee73770c10c0b51
+[2026-03-26 10:29:35] [SUCCESS] [BACKUP] Backup complete: BK_20260326_102935
+[2026-03-26 10:29:35] [SUCCESS] [BACKUP] Backup complete: BK_20260326_102935
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:29:35] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:29:36] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:29:36] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:29:36] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:29:36] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:29:36] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:29:36] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:29:36] [INFO] [SYSTEM] === Generating Daily Report ===
+[2026-03-26 10:29:36] [INFO] [SYSTEM] === Generating Daily Report ===
+[2026-03-26 10:29:36] [SUCCESS] [REPORT] Daily report: /home/hsf/noobtech-devops/reports/daily_report_20260326_102936.html
+[2026-03-26 10:29:36] [SUCCESS] [REPORT] Daily report: /home/hsf/noobtech-devops/reports/daily_report_20260326_102936.html
+[2026-03-26 10:29:36] [INFO] [SYSTEM] === Generating Weekly Report ===
+[2026-03-26 10:29:36] [INFO] [SYSTEM] === Generating Weekly Report ===
+[2026-03-26 10:29:37] [SUCCESS] [REPORT] Weekly report: /home/hsf/noobtech-devops/reports/weekly_report_20260326_102936.html
+[2026-03-26 10:29:37] [SUCCESS] [REPORT] Weekly report: /home/hsf/noobtech-devops/reports/weekly_report_20260326_102936.html
+[2026-03-26 10:29:37] [INFO] [SYSTEM] === Generating Monthly Report ===
+[2026-03-26 10:29:37] [INFO] [SYSTEM] === Generating Monthly Report ===
+[2026-03-26 10:29:37] [SUCCESS] [REPORT] Monthly report: /home/hsf/noobtech-devops/reports/monthly_report_20260326_102937.html
+[2026-03-26 10:29:37] [SUCCESS] [REPORT] Monthly report: /home/hsf/noobtech-devops/reports/monthly_report_20260326_102937.html
+[2026-03-26 10:31:06] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:31:06] [INFO] [SYSTEM] === Security Audit: local ===
+[2026-03-26 10:31:07] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:31:07] [INFO] [SECURITY] Remediation guide written: docs/SECURITY_GUIDE.md
+[2026-03-26 10:31:07] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:31:07] [SUCCESS] [SECURITY] Report saved: data/security_audit_report.txt
+[2026-03-26 10:31:07] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:31:07] [SUCCESS] [SECURITY] Remediation guide: docs/SECURITY_GUIDE.md
+[2026-03-26 10:31:14] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-26 10:31:14] [INFO] [SYSTEM] === Creating Backup: full → database ===
+[2026-03-26 10:31:14] [INFO] [BACKUP] Backup ID:   BK_20260326_103114
+[2026-03-26 10:31:14] [INFO] [BACKUP] Backup ID:   BK_20260326_103114
+[2026-03-26 10:31:14] [INFO] [BACKUP] Type:        full
+[2026-03-26 10:31:14] [INFO] [BACKUP] Type:        full
+[2026-03-26 10:31:14] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:31:14] [INFO] [BACKUP] Target:      database
+[2026-03-26 10:31:14] [INFO] [BACKUP] Output file: BK_20260326_103114_full_database.tar.gz
+[2026-03-26 10:31:14] [INFO] [BACKUP] Output file: BK_20260326_103114_full_database.tar.gz
+[2026-03-26 10:31:14] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_103114_full_database.tar.gz [source]
+[2026-03-26 10:31:14] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_103114_full_database.tar.gz [source]
+[2026-03-26 10:31:14] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 10:31:14] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 10:31:14] [SUCCESS] [BACKUP] Backup complete: BK_20260326_103114
+[2026-03-26 10:31:14] [SUCCESS] [BACKUP] Backup complete: BK_20260326_103114
+[2026-03-26 10:34:06] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 10:34:06] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 10:34:07] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_103406 | Strategy: rolling
+[2026-03-26 10:34:07] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_103406 | Strategy: rolling
+[2026-03-26 10:34:07] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:34:07] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 10:34:07] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:34:07] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 10:34:10] [ERROR] [DEPLOY] stg-web-01 — health check failed
+[2026-03-26 10:34:10] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 10:34:11] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 10:34:12] [ERROR] [DEPLOY] Deployment deploy_webapp_staging_20260326_103406 FAILED — rollback executed
+[2026-03-26 10:34:12] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_103412.html
+[2026-03-26 10:34:12] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_103412.html
+[2026-03-26 10:35:48] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 10:35:48] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 10:35:48] [INFO] [SERVER] Listed all servers
+[2026-03-26 10:35:48] [INFO] [SERVER] Listed all servers
+[2026-03-26 11:10:23] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:10:23] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:10:23] [INFO] [BACKUP] Backup ID:   BK_20260326_111023
+[2026-03-26 11:10:23] [INFO] [BACKUP] Backup ID:   BK_20260326_111023
+[2026-03-26 11:10:23] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:10:23] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:10:23] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:10:23] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:10:23] [INFO] [BACKUP] Output file: BK_20260326_111023_full_configs.tar.gz
+[2026-03-26 11:10:23] [INFO] [BACKUP] Output file: BK_20260326_111023_full_configs.tar.gz
+[2026-03-26 11:10:23] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_111023_full_configs.tar.gz [source]
+[2026-03-26 11:10:23] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_111023_full_configs.tar.gz [source]
+[2026-03-26 11:10:23] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 11:10:23] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 11:10:24] [INFO] [BACKUP] Encrypted: BK_20260326_111023_full_configs.tar.gz.gpg
+[2026-03-26 11:10:24] [INFO] [BACKUP] Encrypted: BK_20260326_111023_full_configs.tar.gz.gpg
+[2026-03-26 11:29:57] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:29:57] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:29:57] [INFO] [BACKUP] Backup ID:   BK_20260326_112957
+[2026-03-26 11:29:57] [INFO] [BACKUP] Backup ID:   BK_20260326_112957
+[2026-03-26 11:29:57] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:29:57] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:29:57] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:29:57] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:29:57] [INFO] [BACKUP] Output file: BK_20260326_112957_full_configs.tar.gz
+[2026-03-26 11:29:57] [INFO] [BACKUP] Output file: BK_20260326_112957_full_configs.tar.gz
+[2026-03-26 11:29:57] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_112957_full_configs.tar.gz [source]
+[2026-03-26 11:29:57] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_112957_full_configs.tar.gz [source]
+[2026-03-26 11:29:57] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 11:29:57] [INFO] [BACKUP] Checksum: 513cd29153128cf9accdd169fb4a5f67
+[2026-03-26 11:29:58] [INFO] [BACKUP] Encrypted: BK_20260326_112957_full_configs.tar.gz.gpg
+[2026-03-26 11:29:58] [INFO] [BACKUP] Encrypted: BK_20260326_112957_full_configs.tar.gz.gpg
+[2026-03-26 11:29:58] [SUCCESS] [BACKUP] Backup complete: BK_20260326_112957
+[2026-03-26 11:29:58] [SUCCESS] [BACKUP] Backup complete: BK_20260326_112957
+[2026-03-26 11:30:07] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-26 11:30:07] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-26 11:30:19] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_111023 ===
+[2026-03-26 11:30:19] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_111023 ===
+[2026-03-26 11:30:19] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:30:28] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_111023 ===
+[2026-03-26 11:30:28] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_111023 ===
+[2026-03-26 11:30:28] [INFO] [BACKUP] Found: BK_20260326_111023_full_configs.tar.gz.gpg
+[2026-03-26 11:30:28] [INFO] [BACKUP] Found: BK_20260326_111023_full_configs.tar.gz.gpg
+[2026-03-26 11:30:28] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:30:28] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:30:28] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:30:28] [ERROR] [BACKUP] Integrity check FAILED — backup may be corrupted
+[2026-03-26 11:31:35] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_112957 ===
+[2026-03-26 11:31:35] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_112957 ===
+[2026-03-26 11:31:35] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:31:54] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_112957 ===
+[2026-03-26 11:31:54] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_112957 ===
+[2026-03-26 11:31:54] [INFO] [BACKUP] Found: BK_20260326_112957_full_configs.tar.gz.gpg
+[2026-03-26 11:31:54] [INFO] [BACKUP] Found: BK_20260326_112957_full_configs.tar.gz.gpg
+[2026-03-26 11:31:54] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:31:54] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:31:54] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:31:54] [ERROR] [BACKUP] Integrity check FAILED — backup may be corrupted
+[2026-03-26 11:39:36] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:39:36] [INFO] [SYSTEM] === Creating Backup: full → configs ===
+[2026-03-26 11:39:36] [INFO] [BACKUP] Backup ID:   BK_20260326_113936
+[2026-03-26 11:39:36] [INFO] [BACKUP] Backup ID:   BK_20260326_113936
+[2026-03-26 11:39:36] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:39:36] [INFO] [BACKUP] Type:        full
+[2026-03-26 11:39:36] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:39:36] [INFO] [BACKUP] Target:      configs
+[2026-03-26 11:39:36] [INFO] [BACKUP] Output file: BK_20260326_113936_full_configs.tar.gz
+[2026-03-26 11:39:36] [INFO] [BACKUP] Output file: BK_20260326_113936_full_configs.tar.gz
+[2026-03-26 11:39:36] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_113936_full_configs.tar.gz [source]
+[2026-03-26 11:39:36] [INFO] [BACKUP] Running: tar -czf /home/hsf/noobtech-devops/backups/BK_20260326_113936_full_configs.tar.gz [source]
+[2026-03-26 11:39:36] [INFO] [BACKUP] Encrypted: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:39:36] [INFO] [BACKUP] Encrypted: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:39:36] [INFO] [BACKUP] Checksum: 0d37eab7580c3341b1d217d348cf1b18
+[2026-03-26 11:39:36] [INFO] [BACKUP] Checksum: 0d37eab7580c3341b1d217d348cf1b18
+[2026-03-26 11:39:36] [SUCCESS] [BACKUP] Backup complete: BK_20260326_113936
+[2026-03-26 11:39:36] [SUCCESS] [BACKUP] Backup complete: BK_20260326_113936
+[2026-03-26 11:40:13] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_113936 ===
+[2026-03-26 11:40:13] [INFO] [SYSTEM] === Verifying Backup: BK_20260326_113936 ===
+[2026-03-26 11:40:13] [SUCCESS] [BACKUP] Backup BK_20260326_113936 — integrity verified
+[2026-03-26 11:40:13] [SUCCESS] [BACKUP] Backup BK_20260326_113936 — integrity verified
+[2026-03-26 11:40:31] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_113936 ===
+[2026-03-26 11:40:31] [INFO] [SYSTEM] === Restoring Backup: BK_20260326_113936 ===
+[2026-03-26 11:40:31] [INFO] [BACKUP] Found: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:40:31] [INFO] [BACKUP] Found: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:40:31] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:40:31] [INFO] [BACKUP] Destination: /tmp/test_restore
+[2026-03-26 11:40:31] [INFO] [BACKUP] Decrypting: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:40:31] [INFO] [BACKUP] Decrypting: BK_20260326_113936_full_configs.tar.gz.gpg
+[2026-03-26 11:40:32] [INFO] [BACKUP] Running: tar -xzf BK_20260326_113936_full_configs.tar.gz -C /tmp/test_restore
+[2026-03-26 11:40:32] [INFO] [BACKUP] Running: tar -xzf BK_20260326_113936_full_configs.tar.gz -C /tmp/test_restore
+[2026-03-26 11:40:32] [SUCCESS] [BACKUP] Restore complete — files at: /tmp/test_restore
+[2026-03-26 11:40:32] [SUCCESS] [BACKUP] Restore complete — files at: /tmp/test_restore
+[2026-03-26 14:52:18] [INFO] [SYSTEM] === Infrastructure Status ===
+[2026-03-26 14:52:18] [INFO] [SYSTEM] === Infrastructure Status ===
+[2026-03-26 15:02:10] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 15:02:10] [INFO] [SYSTEM] === Server Inventory ===
+[2026-03-26 15:02:10] [INFO] [SERVER] Listed all servers
+[2026-03-26 15:02:10] [INFO] [SERVER] Listed all servers
+[2026-03-26 15:04:11] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 15:04:11] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-26 15:04:11] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_150411 | Strategy: rolling
+[2026-03-26 15:04:11] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260326_150411 | Strategy: rolling
+[2026-03-26 15:04:11] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 15:04:11] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-26 15:04:11] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 15:04:11] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-26 15:04:14] [ERROR] [DEPLOY] stg-web-01 — health check failed
+[2026-03-26 15:04:14] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 15:04:15] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 15:04:16] [ERROR] [DEPLOY] Deployment deploy_webapp_staging_20260326_150411 FAILED — rollback executed
+[2026-03-26 15:04:16] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_150416.html
+[2026-03-26 15:04:16] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260326_150416.html
+[2026-03-27 13:49:31] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-27 13:49:31] [INFO] [SYSTEM] === Deployment: webapp → staging (rolling) ===
+[2026-03-27 13:49:31] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260327_134931 | Strategy: rolling
+[2026-03-27 13:49:31] [INFO] [DEPLOY] ID: deploy_webapp_staging_20260327_134931 | Strategy: rolling
+[2026-03-27 13:49:31] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-27 13:49:31] [INFO] [DEPLOY] Rolling — one server at a time
+[2026-03-27 13:49:31] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-27 13:49:31] [INFO] [DEPLOY] Deploying to stg-web-01
+[2026-03-27 13:49:34] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-27 13:49:34] [SUCCESS] [DEPLOY] stg-web-01 — success
+[2026-03-27 13:49:34] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-27 13:49:34] [INFO] [DEPLOY] Deploying to stg-web-02
+[2026-03-27 13:49:37] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-27 13:49:37] [SUCCESS] [DEPLOY] stg-web-02 — success
+[2026-03-27 13:49:37] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260327_134931 completed
+[2026-03-27 13:49:37] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260327_134931 completed
+[2026-03-27 13:49:37] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260327_134937.html
+[2026-03-27 13:49:37] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260327_134937.html

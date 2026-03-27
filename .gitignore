@@ -4,7 +4,7 @@
 *.key
 secrets/
 credentials/
-logs/*.log
+# logs/*.log
 reports/*.html
 reports/*.txt
 backups/*.tar.gz

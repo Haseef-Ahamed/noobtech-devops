@@ -1,0 +1,45 @@
+[2026-03-26 10:20:56] [MEDIUM] [SSH] PermitRootLogin not set — default may allow root login
+[2026-03-26 10:20:56] [HIGH] [SSH] PasswordAuthentication = yes — brute force risk
+[2026-03-26 10:20:56] [LOW] [SSH] SSH on default port 22 — consider changing to reduce scan noise
+[2026-03-26 10:20:56] [PASS] [USERS] No accounts with empty passwords
+[2026-03-26 10:20:56] [PASS] [USERS] Only root has UID 0
+[2026-03-26 10:20:56] [PASS] [USERS] 1 user(s) in sudo group
+[2026-03-26 10:20:56] [PASS] [NETWORK] No dangerous ports open (telnet/ftp/rpc blocked)
+[2026-03-26 10:20:56] [HIGH] [NETWORK] UFW firewall is not active — run: sudo ufw enable
+[2026-03-26 10:20:57] [PASS] [FILES] World-writable file count OK: 8
+[2026-03-26 10:20:57] [PASS] [FILES] No hardcoded credentials found in configs/
+[2026-03-26 10:20:57] [PASS] [FILES] SSH key permissions are secure
+[2026-03-26 10:20:57] [PASS] [SYSTEM] Package lists updated 2 day(s) ago
+[2026-03-26 10:20:57] [LOW] [SYSTEM] auditd not installed — run: sudo apt install auditd
+[2026-03-26 10:20:57] [MEDIUM] [SYSTEM] fail2ban not installed — run: sudo apt install fail2ban
+[2026-03-26 10:20:57] [SCAN] target=local critical=0 high=2 medium=2 low=2
+[2026-03-26 10:29:35] [MEDIUM] [SSH] PermitRootLogin not set — default may allow root login
+[2026-03-26 10:29:35] [HIGH] [SSH] PasswordAuthentication = yes — brute force risk
+[2026-03-26 10:29:35] [LOW] [SSH] SSH on default port 22 — consider changing to reduce scan noise
+[2026-03-26 10:29:35] [PASS] [USERS] No accounts with empty passwords
+[2026-03-26 10:29:35] [PASS] [USERS] Only root has UID 0
+[2026-03-26 10:29:35] [PASS] [USERS] 1 user(s) in sudo group
+[2026-03-26 10:29:36] [PASS] [NETWORK] No dangerous ports open (telnet/ftp/rpc blocked)
+[2026-03-26 10:29:36] [HIGH] [NETWORK] UFW firewall is not active — run: sudo ufw enable
+[2026-03-26 10:29:36] [PASS] [FILES] World-writable file count OK: 8
+[2026-03-26 10:29:36] [PASS] [FILES] No hardcoded credentials found in configs/
+[2026-03-26 10:29:36] [PASS] [FILES] SSH key permissions are secure
+[2026-03-26 10:29:36] [PASS] [SYSTEM] Package lists updated 2 day(s) ago
+[2026-03-26 10:29:36] [LOW] [SYSTEM] auditd not installed — run: sudo apt install auditd
+[2026-03-26 10:29:36] [MEDIUM] [SYSTEM] fail2ban not installed — run: sudo apt install fail2ban
+[2026-03-26 10:29:36] [SCAN] target=local critical=0 high=2 medium=2 low=2
+[2026-03-26 10:31:06] [MEDIUM] [SSH] PermitRootLogin not set — default may allow root login
+[2026-03-26 10:31:06] [HIGH] [SSH] PasswordAuthentication = yes — brute force risk
+[2026-03-26 10:31:06] [LOW] [SSH] SSH on default port 22 — consider changing to reduce scan noise
+[2026-03-26 10:31:06] [PASS] [USERS] No accounts with empty passwords
+[2026-03-26 10:31:06] [PASS] [USERS] Only root has UID 0
+[2026-03-26 10:31:06] [PASS] [USERS] 1 user(s) in sudo group
+[2026-03-26 10:31:07] [PASS] [NETWORK] No dangerous ports open (telnet/ftp/rpc blocked)
+[2026-03-26 10:31:07] [HIGH] [NETWORK] UFW firewall is not active — run: sudo ufw enable
+[2026-03-26 10:31:07] [PASS] [FILES] World-writable file count OK: 8
+[2026-03-26 10:31:07] [PASS] [FILES] No hardcoded credentials found in configs/
+[2026-03-26 10:31:07] [PASS] [FILES] SSH key permissions are secure
+[2026-03-26 10:31:07] [PASS] [SYSTEM] Package lists updated 2 day(s) ago
+[2026-03-26 10:31:07] [LOW] [SYSTEM] auditd not installed — run: sudo apt install auditd
+[2026-03-26 10:31:07] [MEDIUM] [SYSTEM] fail2ban not installed — run: sudo apt install fail2ban
+[2026-03-26 10:31:07] [SCAN] target=local critical=0 high=2 medium=2 low=2

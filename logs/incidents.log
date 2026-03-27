@@ -1,0 +1,11 @@
+[2026-03-24 12:29:00] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-24 12:29:09] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-24 12:29:22] [WARNING] [BACKUP] sqlite3 not found — using flat file registry instead
+[2026-03-26 10:34:10] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 10:34:11] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 11:30:19] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:30:28] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:31:35] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 11:31:54] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-26 15:04:14] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-26 15:04:15] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
