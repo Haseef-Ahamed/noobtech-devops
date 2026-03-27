@@ -5,10 +5,10 @@
 secrets/
 credentials/
 # logs/*.log
-reports/*.html
-reports/*.txt
-backups/*.tar.gz
-data/backup_registry.db
+# reports/*.html
+# reports/*.txt
+# backups/*.tar.gz
+# data/backup_registry.db
 .DS_Store
 *.swp
 *~

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Operations Report — 2026-03-24</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: #0d1117; color: #c9d1d9; padding: 2rem; }
+  h1   { color: #58a6ff; font-size: 1.8rem; margin-bottom: 0.25rem; }
+  h2   { color: #58a6ff; font-size: 1.1rem; margin: 1.5rem 0 0.75rem;
+         border-bottom: 1px solid #30363d; padding-bottom: 0.4rem; }
+  .meta  { color: #8b949e; font-size: 0.85rem; margin-bottom: 2rem; }
+  .grid  { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+           gap: 1rem; margin-bottom: 1.5rem; }
+  .card  { background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+           padding: 1rem; }
+  .card .num  { font-size: 2rem; font-weight: 600; color: #58a6ff; }
+  .card .label{ font-size: 0.8rem; color: #8b949e; margin-top: 0.25rem; }
+  .ok   { color: #3fb950; } .warn { color: #d29922; } .err { color: #f85149; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th    { background: #161b22; color: #58a6ff; padding: 8px 12px; text-align: left;
+          border: 1px solid #30363d; }
+  td    { padding: 7px 12px; border: 1px solid #21262d; }
+  tr:nth-child(even) td { background: #0d1117; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px;
+           font-size: 0.75rem; font-weight: 600; }
+  .badge-ok   { background: #1a4731; color: #3fb950; }
+  .badge-warn { background: #3d2e00; color: #d29922; }
+  .badge-err  { background: #3d1515; color: #f85149; }
+  .bar-wrap { background: #21262d; border-radius: 4px; height: 8px; margin-top: 4px; }
+  .bar-fill { height: 8px; border-radius: 4px; background: #1f6feb; }
+</style>
+</head>
+<body>
+<h1>Daily Operations Report</h1>
+<p class="meta">Generated: 2026-03-24 12:31:43 &nbsp;|&nbsp; Environment: dev</p>
+
+<h2>Summary</h2>
+<div class="grid">
+  <div class="card">
+    <div class="num">5</div>
+    <div class="label">Deployments Today</div>
+  </div>
+  <div class="card">
+    <div class="num ok">5</div>
+    <div class="label">Successful</div>
+  </div>
+  <div class="card">
+    <div class="num">2</div>
+    <div class="label">Backups Created</div>
+  </div>
+  <div class="card">
+    <div class="num warn">3</div>
+    <div class="label">Incidents</div>
+  </div>
+  <div class="card">
+    <div class="num">2</div>
+    <div class="label">Config Changes</div>
+  </div>
+  <div class="card">
+    <div class="num">203</div>
+    <div class="label">Total Operations</div>
+  </div>
+</div>
+
+<h2>Deployment History</h2>
+<table>
+  <tr><th>Time</th><th>ID</th><th>App</th><th>Environment</th><th>Strategy</th><th>Status</th></tr>
+<tr><td>2026-03-24 10:09:30</td><td><code>deploy_webapp_staging_20260324_100930</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:09:44</td><td><code>deploy_webapp_staging_20260324_100944</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:12:21</td><td><code>deploy_webapp_staging_20260324_101221</code></td><td>webapp</td>
+<td>staging</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:14:37</td><td><code>deploy_webapp_staging_20260324_101437</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:14:47</td><td><code>deploy_webapp_staging_20260324_101446</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+</table>
+
+<h2>Recent Incidents</h2>
+<table>
+  <tr><th>Time</th><th>Severity</th><th>Server</th><th>Message</th></tr>
+<tr><td>2026-03-24 12:29:00</td><td><span class='badge badge-warn'>WARNING</span></td>
+<td>BACKUP</td><td>sqlite3 not found — using flat file registry instead</td></tr>
+<tr><td>2026-03-24 12:29:09</td><td><span class='badge badge-warn'>WARNING</span></td>
+<td>BACKUP</td><td>sqlite3 not found — using flat file registry instead</td></tr>
+<tr><td>2026-03-24 12:29:22</td><td><span class='badge badge-warn'>WARNING</span></td>
+<td>BACKUP</td><td>sqlite3 not found — using flat file registry instead</td></tr>
+</table>
+</body></html>
