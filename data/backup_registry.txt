@@ -5,3 +5,5 @@ BK_20260326_102935|database|database|/home/hsf/noobtech-devops/backups/BK_202603
 BK_20260326_103114|full|database|/home/hsf/noobtech-devops/backups/BK_20260326_103114_full_database.tar.gz|842|513cd29153128cf9accdd169fb4a5f67|2026-03-26 10:31:14|created
 BK_20260326_112957|full|configs|/home/hsf/noobtech-devops/backups/BK_20260326_112957_full_configs.tar.gz.gpg|948|513cd29153128cf9accdd169fb4a5f67|2026-03-26 11:29:58|created
 BK_20260326_113936|full|configs|/home/hsf/noobtech-devops/backups/BK_20260326_113936_full_configs.tar.gz.gpg|948|0d37eab7580c3341b1d217d348cf1b18|2026-03-26 11:39:36|created
+BK_20260327_150829|incremental|configs|/home/hsf/noobtech-devops/backups/BK_20260327_150829_incremental_configs.tar.gz.gpg|955|0fb2740dc0e4e6bdf04daefd7bda49c8|2026-03-27 15:08:30|created
+BK_20260327_150954|incremental|configs|/home/hsf/noobtech-devops/backups/BK_20260327_150954_incremental_configs.tar.gz.gpg|249|f073900ec8a1e4b78f0852dbca552fc8|2026-03-27 15:09:55|created

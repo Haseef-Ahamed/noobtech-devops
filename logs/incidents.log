@@ -9,3 +9,6 @@
 [2026-03-26 11:31:54] [WARNING] [BACKUP] No checksum file found — cannot verify
 [2026-03-26 15:04:14] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
 [2026-03-26 15:04:15] [WARNING] [DEPLOY] ROLLBACK: restoring stg-web-01
+[2026-03-27 15:08:18] [WARNING] [BACKUP] No previous backup found — doing full backup instead
+[2026-03-27 15:08:29] [WARNING] [BACKUP] No previous backup found — doing full backup instead
+[2026-03-27 15:09:47] [WARNING] [BACKUP] No checksum file found — cannot verify

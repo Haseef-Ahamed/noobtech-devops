@@ -6,3 +6,7 @@
 [2026-03-26 11:29:58] [CREATE] id=BK_20260326_112957 type=full target=configs size=948B
 [2026-03-26 11:39:36] [CREATE] id=BK_20260326_113936 type=full target=configs size=948B
 [2026-03-26 11:40:32] [RESTORE] id=BK_20260326_113936 destination=/tmp/test_restore
+[2026-03-27 15:08:30] [CREATE] id=BK_20260327_150829 type=incremental target=configs size=955B
+[2026-03-27 15:08:30] [DELETED] BK_20260324_122900_full_database.tar.gz (retention policy)
+[2026-03-27 15:09:55] [CREATE] id=BK_20260327_150954 type=incremental target=configs size=249B
+[2026-03-27 15:09:55] [DELETED] BK_20260324_122909_database_database.tar.gz (retention policy)

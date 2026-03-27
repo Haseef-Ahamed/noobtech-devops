@@ -170,20 +170,43 @@ backup_create() {
             tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
             echo "  ${C_GREEN}      ✓ Full backup created${C_RESET}"
             ;;
+
         incremental)
-            # --newer: only include files modified after a reference timestamp
             local ref_file="$NOOBTECH_ROOT/data/.last_backup_ts"
+            local source_path
+            case "$target" in
+                database)  source_path="/tmp"
+                        echo "  -- Incremental MySQL dump (changes since last backup)" > /tmp/incremental_dump.sql
+                        tar -czf "$backup_file" -C /tmp incremental_dump.sql 2>/dev/null
+                        rm -f /tmp/incremental_dump.sql ;;
+                webapp)    source_path="$NOOBTECH_ROOT/deployments" ;;
+                configs)   source_path="$NOOBTECH_ROOT/configs" ;;
+                logs)      source_path="$NOOBTECH_ROOT/logs" ;;
+                *)         source_path="$NOOBTECH_ROOT/configs" ;;
+            esac
             if [ ! -f "$ref_file" ]; then
                 log_warning "BACKUP" "No previous backup found — doing full backup instead"
-                tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
+                tar -czf "$backup_file" "$source_path" 2>/dev/null
             else
-                tar -czf "$backup_file" --newer="$ref_file" \
-                    "$NOOBTECH_ROOT/configs" 2>/dev/null || \
-                tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
+                tar -czf "$backup_file" --newer="$ref_file" "$source_path" 2>/dev/null || \
+                tar -czf "$backup_file" "$source_path" 2>/dev/null
             fi
             touch "$NOOBTECH_ROOT/data/.last_backup_ts"
-            echo "  ${C_GREEN}      ✓ Incremental backup created${C_RESET}"
-            ;;
+            echo "  ${C_GREEN} ✓ Incremental backup created (changes since last backup)${C_RESET}" ;;
+        # incremental)
+        #     # --newer: only include files modified after a reference timestamp
+        #     local ref_file="$NOOBTECH_ROOT/data/.last_backup_ts"
+        #     if [ ! -f "$ref_file" ]; then
+        #         log_warning "BACKUP" "No previous backup found — doing full backup instead"
+        #         tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
+        #     else
+        #         tar -czf "$backup_file" --newer="$ref_file" \
+        #             "$NOOBTECH_ROOT/configs" 2>/dev/null || \
+        #         tar -czf "$backup_file" "$NOOBTECH_ROOT/configs" 2>/dev/null
+        #     fi
+        #     touch "$NOOBTECH_ROOT/data/.last_backup_ts"
+        #     echo "  ${C_GREEN}      ✓ Incremental backup created${C_RESET}"
+        #     ;;
         database)
             # In production: mysqldump --all-databases | gzip > dump.sql.gz
             local tmp_dump="/tmp/db_dump_$(timestamp_short).sql"

@@ -499,3 +499,60 @@
 [2026-03-27 13:49:37] [SUCCESS] [DEPLOY] Deployment deploy_webapp_staging_20260327_134931 completed
 [2026-03-27 13:49:37] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260327_134937.html
 [2026-03-27 13:49:37] [INFO] [DEPLOY] Report: /home/hsf/noobtech-devops/reports/deploy_20260327_134937.html
+[2026-03-27 15:08:18] [INFO] [SYSTEM] === Creating Backup: incremental → database ===
+[2026-03-27 15:08:18] [INFO] [SYSTEM] === Creating Backup: incremental → database ===
+[2026-03-27 15:08:18] [INFO] [BACKUP] Backup ID:   BK_20260327_150818
+[2026-03-27 15:08:18] [INFO] [BACKUP] Backup ID:   BK_20260327_150818
+[2026-03-27 15:08:18] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:08:18] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:08:18] [INFO] [BACKUP] Target:      database
+[2026-03-27 15:08:18] [INFO] [BACKUP] Target:      database
+[2026-03-27 15:08:18] [INFO] [BACKUP] Output file: BK_20260327_150818_incremental_database.tar.gz
+[2026-03-27 15:08:18] [INFO] [BACKUP] Output file: BK_20260327_150818_incremental_database.tar.gz
+[2026-03-27 15:08:18] [WARNING] [BACKUP] No previous backup found — doing full backup instead
+[2026-03-27 15:08:29] [INFO] [SYSTEM] === Creating Backup: incremental → configs ===
+[2026-03-27 15:08:29] [INFO] [SYSTEM] === Creating Backup: incremental → configs ===
+[2026-03-27 15:08:29] [INFO] [BACKUP] Backup ID:   BK_20260327_150829
+[2026-03-27 15:08:29] [INFO] [BACKUP] Backup ID:   BK_20260327_150829
+[2026-03-27 15:08:29] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:08:29] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:08:29] [INFO] [BACKUP] Target:      configs
+[2026-03-27 15:08:29] [INFO] [BACKUP] Target:      configs
+[2026-03-27 15:08:29] [INFO] [BACKUP] Output file: BK_20260327_150829_incremental_configs.tar.gz
+[2026-03-27 15:08:29] [INFO] [BACKUP] Output file: BK_20260327_150829_incremental_configs.tar.gz
+[2026-03-27 15:08:29] [WARNING] [BACKUP] No previous backup found — doing full backup instead
+[2026-03-27 15:08:29] [INFO] [BACKUP] Encrypted: BK_20260327_150829_incremental_configs.tar.gz.gpg
+[2026-03-27 15:08:29] [INFO] [BACKUP] Encrypted: BK_20260327_150829_incremental_configs.tar.gz.gpg
+[2026-03-27 15:08:29] [INFO] [BACKUP] Checksum: 0fb2740dc0e4e6bdf04daefd7bda49c8
+[2026-03-27 15:08:29] [INFO] [BACKUP] Checksum: 0fb2740dc0e4e6bdf04daefd7bda49c8
+[2026-03-27 15:08:30] [SUCCESS] [BACKUP] Backup complete: BK_20260327_150829
+[2026-03-27 15:08:30] [SUCCESS] [BACKUP] Backup complete: BK_20260327_150829
+[2026-03-27 15:08:35] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-27 15:08:35] [INFO] [SYSTEM] === Backup Registry ===
+[2026-03-27 15:09:47] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150818 ===
+[2026-03-27 15:09:47] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150818 ===
+[2026-03-27 15:09:47] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-27 15:09:54] [INFO] [SYSTEM] === Creating Backup: incremental → configs ===
+[2026-03-27 15:09:54] [INFO] [SYSTEM] === Creating Backup: incremental → configs ===
+[2026-03-27 15:09:54] [INFO] [BACKUP] Backup ID:   BK_20260327_150954
+[2026-03-27 15:09:54] [INFO] [BACKUP] Backup ID:   BK_20260327_150954
+[2026-03-27 15:09:54] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:09:54] [INFO] [BACKUP] Type:        incremental
+[2026-03-27 15:09:54] [INFO] [BACKUP] Target:      configs
+[2026-03-27 15:09:54] [INFO] [BACKUP] Target:      configs
+[2026-03-27 15:09:54] [INFO] [BACKUP] Output file: BK_20260327_150954_incremental_configs.tar.gz
+[2026-03-27 15:09:54] [INFO] [BACKUP] Output file: BK_20260327_150954_incremental_configs.tar.gz
+[2026-03-27 15:09:55] [INFO] [BACKUP] Encrypted: BK_20260327_150954_incremental_configs.tar.gz.gpg
+[2026-03-27 15:09:55] [INFO] [BACKUP] Encrypted: BK_20260327_150954_incremental_configs.tar.gz.gpg
+[2026-03-27 15:09:55] [INFO] [BACKUP] Checksum: f073900ec8a1e4b78f0852dbca552fc8
+[2026-03-27 15:09:55] [INFO] [BACKUP] Checksum: f073900ec8a1e4b78f0852dbca552fc8
+[2026-03-27 15:09:55] [SUCCESS] [BACKUP] Backup complete: BK_20260327_150954
+[2026-03-27 15:09:55] [SUCCESS] [BACKUP] Backup complete: BK_20260327_150954
+[2026-03-27 15:10:29] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150829 ===
+[2026-03-27 15:10:29] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150829 ===
+[2026-03-27 15:10:29] [SUCCESS] [BACKUP] Backup BK_20260327_150829 — integrity verified
+[2026-03-27 15:10:29] [SUCCESS] [BACKUP] Backup BK_20260327_150829 — integrity verified
+[2026-03-27 15:10:47] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150954 ===
+[2026-03-27 15:10:47] [INFO] [SYSTEM] === Verifying Backup: BK_20260327_150954 ===
+[2026-03-27 15:10:47] [SUCCESS] [BACKUP] Backup BK_20260327_150954 — integrity verified
+[2026-03-27 15:10:47] [SUCCESS] [BACKUP] Backup BK_20260327_150954 — integrity verified
