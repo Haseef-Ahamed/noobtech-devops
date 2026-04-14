@@ -1,0 +1,9 @@
+[mysqld]
+max_connections = 150
+innodb_buffer_pool_size = 1G
+innodb_log_file_size = 256M
+slow_query_log = 1
+long_query_time = 2
+[security]
+bind_address = 127.0.0.1
+local_infile = 0

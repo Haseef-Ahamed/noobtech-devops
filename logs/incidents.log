@@ -12,3 +12,9 @@
 [2026-03-27 15:08:18] [WARNING] [BACKUP] No previous backup found — doing full backup instead
 [2026-03-27 15:08:29] [WARNING] [BACKUP] No previous backup found — doing full backup instead
 [2026-03-27 15:09:47] [WARNING] [BACKUP] No checksum file found — cannot verify
+[2026-03-28 11:14:15] [WARNING] [DEPLOY] TARGET IS PRODUCTION
+[2026-03-28 11:16:56] [CRITICAL] [stg-web-01] Threshold exceeded: CPU=87% MEM=55% DISK=32%
+
+
+
+[2026-03-29 11:41:22] [WARNING] [CONFIG] PRODUCTION server: prod-web-01

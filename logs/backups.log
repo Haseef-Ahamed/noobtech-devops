@@ -10,3 +10,21 @@
 [2026-03-27 15:08:30] [DELETED] BK_20260324_122900_full_database.tar.gz (retention policy)
 [2026-03-27 15:09:55] [CREATE] id=BK_20260327_150954 type=incremental target=configs size=249B
 [2026-03-27 15:09:55] [DELETED] BK_20260324_122909_database_database.tar.gz (retention policy)
+[2026-03-28 11:14:59] [CREATE] id=BK_20260328_111459 type=full target=myapp size=946B
+[2026-03-28 11:14:59] [DELETED] BK_20260326_102935_database_database.tar.gz (retention policy)
+[2026-03-28 11:16:04] [CREATE] id=BK_20260328_111604 type=database target=prod-db-01 size=426B
+[2026-03-28 11:16:04] [DELETED] BK_20260326_102935_full_database.tar.gz (retention policy)
+[2026-03-28 11:16:21] [CREATE] id=BK_20260328_111621 type=incremental target=webapp size=316B
+[2026-03-28 11:16:21] [DELETED] BK_20260326_103114_full_database.tar.gz (retention policy)
+[2026-03-29 10:27:13] [CREATE] id=BK_20260329_102712 type=full target=configs size=948B
+[2026-03-29 10:27:13] [DELETED] BK_20260326_113936_full_configs.tar.gz.gpg (retention policy)
+[2026-03-29 10:27:29] [CREATE] id=BK_20260329_102728 type=full target=logs size=945B
+[2026-03-29 10:27:29] [DELETED] BK_20260327_150818_incremental_database.tar.gz (retention policy)
+
+
+
+[2026-03-29 11:51:05] [CREATE] id=BK_20260329_115104 type=full target=database size=949B
+[2026-03-29 11:51:37] [CREATE] id=BK_20260329_115136 type=full target=webapp size=947B
+[2026-03-29 11:51:59] [CREATE] id=BK_20260329_115158 type=full target=configs size=948B
+[2026-03-29 11:52:18] [CREATE] id=BK_20260329_115216 type=incremental target=webapp size=316B
+[2026-03-29 11:52:40] [CREATE] id=BK_20260329_115239 type=database target=database size=425B

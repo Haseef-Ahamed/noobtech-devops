@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Monthly Executive Report — March 2026</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: #0d1117; color: #c9d1d9; padding: 2rem; }
+  h1   { color: #58a6ff; font-size: 1.8rem; margin-bottom: 0.25rem; }
+  h2   { color: #58a6ff; font-size: 1.1rem; margin: 1.5rem 0 0.75rem;
+         border-bottom: 1px solid #30363d; padding-bottom: 0.4rem; }
+  .meta  { color: #8b949e; font-size: 0.85rem; margin-bottom: 2rem; }
+  .grid  { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+           gap: 1rem; margin-bottom: 1.5rem; }
+  .card  { background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+           padding: 1rem; }
+  .card .num  { font-size: 2rem; font-weight: 600; color: #58a6ff; }
+  .card .label{ font-size: 0.8rem; color: #8b949e; margin-top: 0.25rem; }
+  .ok   { color: #3fb950; } .warn { color: #d29922; } .err { color: #f85149; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th    { background: #161b22; color: #58a6ff; padding: 8px 12px; text-align: left;
+          border: 1px solid #30363d; }
+  td    { padding: 7px 12px; border: 1px solid #21262d; }
+  tr:nth-child(even) td { background: #0d1117; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px;
+           font-size: 0.75rem; font-weight: 600; }
+  .badge-ok   { background: #1a4731; color: #3fb950; }
+  .badge-warn { background: #3d2e00; color: #d29922; }
+  .badge-err  { background: #3d1515; color: #f85149; }
+  .bar-wrap { background: #21262d; border-radius: 4px; height: 8px; margin-top: 4px; }
+  .bar-fill { height: 8px; border-radius: 4px; background: #1f6feb; }
+</style>
+</head>
+<body>
+<h1>Monthly Executive Report</h1>
+<p class="meta">March 2026 &nbsp;|&nbsp; Generated: 2026-03-29 11:59:33</p>
+
+<h2>Key Metrics</h2>
+<div class="grid">
+  <div class="card">
+    <div class="num ok">99.9%</div>
+    <div class="label">System Uptime</div>
+  </div>
+  <div class="card">
+    <div class="num">23</div>
+    <div class="label">Deployments</div>
+  </div>
+  <div class="card">
+    <div class="num">0</div>
+    <div class="label">Backups</div>
+  </div>
+  <div class="card">
+    <div class="num">9</div>
+    <div class="label">Servers Managed</div>
+  </div>
+</div>
+
+<h2>Infrastructure Overview</h2>
+<p style="color:#8b949e;margin-bottom:1rem">9 servers across 3 environments (production, staging, development)</p>
+
+<h2>Top Incidents This Month</h2>
+<table>
+  <tr><th>Date</th><th>Severity</th><th>Description</th><th>Resolved</th></tr>
+  <tr><td>2026-03-29</td><td><span class="badge badge-warn">WARNING</span></td><td>NTP sync drift detected on dev-web-01</td><td class="ok">Yes</td></tr>
+  <tr><td>2026-03-29</td><td><span class="badge badge-ok">INFO</span></td><td>Config applied to 3 servers</td><td class="ok">N/A</td></tr>
+</table>
+</body></html>

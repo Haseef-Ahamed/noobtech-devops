@@ -1,0 +1,14 @@
+[nginx]
+worker_processes = auto
+worker_connections = 1024
+keepalive_timeout = 65
+client_max_body_size = 10m
+gzip = on
+[timeouts]
+proxy_connect_timeout = 30
+proxy_send_timeout = 60
+proxy_read_timeout = 60
+[security]
+server_tokens = off
+add_header X-Frame-Options SAMEORIGIN
+add_header X-Content-Type-Options nosniff
