@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Daily Operations Report — 2026-04-14</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+         background: #0d1117; color: #c9d1d9; padding: 2rem; }
+  h1   { color: #58a6ff; font-size: 1.8rem; margin-bottom: 0.25rem; }
+  h2   { color: #58a6ff; font-size: 1.1rem; margin: 1.5rem 0 0.75rem;
+         border-bottom: 1px solid #30363d; padding-bottom: 0.4rem; }
+  .meta  { color: #8b949e; font-size: 0.85rem; margin-bottom: 2rem; }
+  .grid  { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+           gap: 1rem; margin-bottom: 1.5rem; }
+  .card  { background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+           padding: 1rem; }
+  .card .num  { font-size: 2rem; font-weight: 600; color: #58a6ff; }
+  .card .label{ font-size: 0.8rem; color: #8b949e; margin-top: 0.25rem; }
+  .ok   { color: #3fb950; } .warn { color: #d29922; } .err { color: #f85149; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
+  th    { background: #161b22; color: #58a6ff; padding: 8px 12px; text-align: left;
+          border: 1px solid #30363d; }
+  td    { padding: 7px 12px; border: 1px solid #21262d; }
+  tr:nth-child(even) td { background: #0d1117; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 12px;
+           font-size: 0.75rem; font-weight: 600; }
+  .badge-ok   { background: #1a4731; color: #3fb950; }
+  .badge-warn { background: #3d2e00; color: #d29922; }
+  .badge-err  { background: #3d1515; color: #f85149; }
+  .bar-wrap { background: #21262d; border-radius: 4px; height: 8px; margin-top: 4px; }
+  .bar-fill { height: 8px; border-radius: 4px; background: #1f6feb; }
+</style>
+</head>
+<body>
+<h1>Daily Operations Report</h1>
+<p class="meta">Generated: 2026-04-14 17:56:03 &nbsp;|&nbsp; Environment: dev</p>
+
+<h2>Summary</h2>
+<div class="grid">
+  <div class="card">
+    <div class="num">28</div>
+    <div class="label">Deployments Today</div>
+  </div>
+  <div class="card">
+    <div class="num ok">25</div>
+    <div class="label">Successful</div>
+  </div>
+  <div class="card">
+    <div class="num">1</div>
+    <div class="label">Backups Created</div>
+  </div>
+  <div class="card">
+    <div class="num warn">24</div>
+    <div class="label">Incidents</div>
+  </div>
+  <div class="card">
+    <div class="num">42</div>
+    <div class="label">Config Changes</div>
+  </div>
+  <div class="card">
+    <div class="num">1588</div>
+    <div class="label">Total Operations</div>
+  </div>
+</div>
+
+<h2>Deployment History</h2>
+<table>
+  <tr><th>Time</th><th>ID</th><th>App</th><th>Environment</th><th>Strategy</th><th>Status</th></tr>
+<tr><td>2026-03-24 10:09:30</td><td><code>deploy_webapp_staging_20260324_100930</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:09:44</td><td><code>deploy_webapp_staging_20260324_100944</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:12:21</td><td><code>deploy_webapp_staging_20260324_101221</code></td><td>webapp</td>
+<td>staging</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:14:37</td><td><code>deploy_webapp_staging_20260324_101437</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-24 10:14:47</td><td><code>deploy_webapp_staging_20260324_101446</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-26 10:29:12</td><td><code>deploy_webapp_staging_20260326_102912</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-26 10:29:18</td><td><code>deploy_webapp_staging_20260326_102918</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-26 10:34:07</td><td><code>deploy_webapp_staging_20260326_103406</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-err'>FAILED</span></td></tr>
+<tr><td>2026-03-26 15:04:11</td><td><code>deploy_webapp_staging_20260326_150411</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-err'>FAILED</span></td></tr>
+<tr><td>2026-03-27 13:49:31</td><td><code>deploy_webapp_staging_20260327_134931</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:03:33</td><td><code>deploy_webapp_staging_20260328_110332</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:04:48</td><td><code>deploy_webapp_staging_20260328_110447</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:10:51</td><td><code>deploy_webapp_development_20260328_111051</code></td><td>webapp</td>
+<td>development</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:11:10</td><td><code>deploy_webapp_development_20260328_111110</code></td><td>webapp</td>
+<td>development</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:11:24</td><td><code>deploy_webapp_development_20260328_111124</code></td><td>webapp</td>
+<td>development</td><td>canary</td>
+<td><span class='badge badge-err'>FAILED</span></td></tr>
+<tr><td>2026-03-28 11:12:02</td><td><code>deploy_webapp_development_20260328_111202</code></td><td>webapp</td>
+<td>development</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:13:34</td><td><code>deploy_webapp_development_20260328_111334</code></td><td>webapp</td>
+<td>development</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:13:57</td><td><code>deploy_webapp_staging_20260328_111357</code></td><td>webapp</td>
+<td>staging</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-28 11:14:18</td><td><code>deploy_webapp_production_20260328_111415</code></td><td>webapp</td>
+<td>production</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-29 11:46:26</td><td><code>deploy_webapp_staging_20260329_114626</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-29 11:47:24</td><td><code>deploy_webapp_staging_20260329_114723</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-29 11:48:18</td><td><code>deploy_webapp_staging_20260329_114818</code></td><td>webapp</td>
+<td>staging</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-03-29 11:49:19</td><td><code>deploy_webapp_staging_20260329_114918</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-04-14 09:00:38</td><td><code>deploy_webapp_staging_20260414_090038</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-04-14 09:01:15</td><td><code>deploy_webapp_staging_20260414_090115</code></td><td>webapp</td>
+<td>staging</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-04-14 09:01:53</td><td><code>deploy_webapp_staging_20260414_090153</code></td><td>webapp</td>
+<td>staging</td><td>blue-green</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-04-14 09:02:40</td><td><code>deploy_webapp_staging_20260414_090239</code></td><td>webapp</td>
+<td>staging</td><td>canary</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+<tr><td>2026-04-14 17:44:02</td><td><code>deploy_webapp_production_20260414_174359</code></td><td>webapp</td>
+<td>production</td><td>rolling</td>
+<td><span class='badge badge-ok'>SUCCESS</span></td></tr>
+</table>
+
+<h2>Recent Incidents</h2>
+<table>
+  <tr><th>Time</th><th>Severity</th><th>Server</th><th>Message</th></tr>
+<tr><td>2026-03-28 11:14:15</td><td><span class='badge badge-warn'>WARNING</span></td>
+<td>DEPLOY</td><td>TARGET IS PRODUCTION</td></tr>
+<tr><td>2026-03-28 11:16:56</td><td><span class='badge badge-err'>CRITICAL</span></td>
+<td>stg-web-01</td><td>Threshold exceeded: CPU=87% MEM=55% DISK=32%</td></tr>

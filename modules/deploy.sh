@@ -5,8 +5,29 @@ source "$NOOBTECH_ROOT/lib/common.sh"
 
 HISTORY="$NOOBTECH_ROOT/data/deployment_history.log"
 
+# cmd_deploy() {
+#     local app="${1:-}"; [ -z "$app" ] && { log_error "DEPLOY" "Usage: deploy <app> <env> [strategy]"; return 1; }
+#     shift
+#     deploy_run "$app" "$@"
+# }
 cmd_deploy() {
-    local app="${1:-}"; [ -z "$app" ] && { log_error "DEPLOY" "Usage: deploy <app> <env> [strategy]"; return 1; }
+    local first="${1:-}"
+
+    case "$first" in
+        --help|-h|"")
+            cat <<'EOF'
+Usage: deploy <app> <env> [rolling|blue-green|canary]
+
+Examples:
+  ./noobtech-devops deploy webapp staging rolling
+  ./noobtech-devops deploy webapp production blue-green
+  ./noobtech-devops deploy webapp production canary
+EOF
+            return 0
+            ;;
+    esac
+
+    local app="$1"
     shift
     deploy_run "$app" "$@"
 }

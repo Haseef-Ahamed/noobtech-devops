@@ -28,3 +28,8 @@
 [2026-03-29 11:51:59] [CREATE] id=BK_20260329_115158 type=full target=configs size=948B
 [2026-03-29 11:52:18] [CREATE] id=BK_20260329_115216 type=incremental target=webapp size=316B
 [2026-03-29 11:52:40] [CREATE] id=BK_20260329_115239 type=database target=database size=425B
+[2026-04-14 17:45:53] [CREATE] id=BK_20260414_174548 type=full target=database size=949B
+[2026-04-14 17:47:55] [CREATE] id=BK_20260414_174753 type=database target=database size=425B
+[2026-04-14 17:47:55] [DELETED] BK_20260329_115104_full_database.tar.gz.gpg (retention policy)
+[2026-04-14 17:52:29] [CREATE] id=BK_20260414_175228 type=full target=database size=949B
+[2026-04-14 17:52:29] [DELETED] BK_20260329_115136_full_webapp.tar.gz.gpg (retention policy)
